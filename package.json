@@ -2,7 +2,6 @@
 	"name": "custom-template-wizard",
 	"version": "1.0.0",
 	"bin": {
-		"setup": "./build/index.js",
 		"test-wizard": "./build/index.js"
 	},
 	"type": "module",
