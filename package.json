@@ -6,6 +6,8 @@
 	},
 	"type": "module",
 	"scripts": {
+		"test-wizard": "./build/index.js",
+		"setup": "./build/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
