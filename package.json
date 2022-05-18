@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"bin": {
 		"setup": "./build/index.js",
-		"test-wizard": "index.js"
+		"test-wizard": "./build/index.js"
 	},
 	"type": "module",
 	"scripts": {
