@@ -1,5 +1,0 @@
-query GetResourceId($id: String!) {
-	resource(id: $id) {
-		id
-	}
-}
