@@ -2,8 +2,9 @@
   "name": "custom-template-wizard",
   "version": "1.0.0",
   "bin": {
-    "test-command": "index.js"
+    "test-wizard": "./.wizard/index.ts"
   },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
