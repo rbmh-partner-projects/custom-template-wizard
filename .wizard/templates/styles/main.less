@@ -1,0 +1,38 @@
+@import (less) 'config.less';
+
+.rb-example__panel {
+  padding: 50px;
+  font-size: 16px;
+  font-family: 'Bull Text', Helvetica, sans-serif;
+  color: @gray-dark;
+}
+
+.rb-example__card {
+  width: 300px;
+  padding: 20px;
+  box-shadow: 4px 4px 10px 10px #d0d0d0;
+  h3 {
+    font-size: 24px;
+    padding: 12px 0;
+  }
+  p {
+    padding: 8px 0;
+  }
+  .example-img {
+    width: 150px;
+  }
+
+  pre#submissionData {
+    display: none;
+    max-height: 400px;
+    font-size: 0.9rem;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    border: 4px solid #efefef;
+    padding: 5px 10px;
+    margin: 0px;
+    overflow: scroll;
+    transition: background-color 400ms;
+  }
+}
