@@ -2,12 +2,10 @@
 	"name": "custom-template-wizard",
 	"version": "1.0.0",
 	"bin": {
-		"test-wizard": "./build/index.js"
+		"setup": "./build/index.js"
 	},
 	"type": "module",
 	"scripts": {
-		"test-wizard": "./build/index.js",
-		"setup": "./build/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
