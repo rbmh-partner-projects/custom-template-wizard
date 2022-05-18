@@ -2,7 +2,7 @@
 	"name": "custom-template-wizard",
 	"version": "1.0.0",
 	"bin": {
-		"setup": "./index.js"
+		"custom-template-wizard": "./index.js"
 	},
 	"type": "module",
 	"scripts": {
