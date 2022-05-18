@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import inquirer from 'inquirer';
-import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum';
+import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum.js';
 var inq = {
     askIfWantToStartDevEnv: function () { return __awaiter(void 0, void 0, void 0, function () {
         var question, answer;

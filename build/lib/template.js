@@ -49,7 +49,7 @@ import doT from 'dot';
 import fs from 'fs-extra';
 import path from 'path';
 import prettier from 'prettier';
-import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum';
+import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum.js';
 function renderTemplate(filePath, config, crepoConfig) {
     return __awaiter(this, void 0, void 0, function () {
         var templateContent, template;

@@ -1,6 +1,6 @@
 import { Answers } from 'inquirer';
 import { ConsumerDataConfig, CREPOConfig } from '../types';
-import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum';
+import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum.js';
 declare const inq: {
     askIfWantToStartDevEnv: () => Promise<boolean>;
     askIfWantToOverrideChanges: () => Promise<{

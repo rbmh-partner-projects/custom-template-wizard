@@ -1,7 +1,7 @@
 import inquirer, { Answers, QuestionCollection } from 'inquirer'
 
 import { ConsumerDataConfig, CREPOConfig } from '../types'
-import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum'
+import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum.js'
 
 const inq = {
   askIfWantToStartDevEnv: async (): Promise<boolean> => {

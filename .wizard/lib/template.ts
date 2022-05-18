@@ -4,7 +4,7 @@ import path from 'path'
 import prettier, {Options} from 'prettier'
 
 import {CREPOConfig, CustomScriptConfig, CustomScriptTemplatePath,} from '../types'
-import {CustomScriptFramework, CustomScriptLanguage} from '../types/enum'
+import {CustomScriptFramework, CustomScriptLanguage} from '../types/enum.js'
 
 async function renderTemplate(
     filePath: string,
