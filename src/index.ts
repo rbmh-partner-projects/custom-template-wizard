@@ -19,7 +19,12 @@ const redBullChalk = chalk.hex(redBullRed)
 const log = console.log
 
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
+  console.log("Exec path" + process.execPath)
+  
+  console.log(import.meta)
+
   console.log("Current Working directory:" + process.cwd())
+  console.log("Another one:" + path.resolve("./lib/files.ts"))
   process.exit(0)
 }
 
