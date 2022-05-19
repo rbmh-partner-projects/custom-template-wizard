@@ -73,10 +73,10 @@ function formatTemplate(content, destPath) {
         tabWidth: 2,
         printWidth: 100,
         pluginSearchDirs: [process.cwd()],
-        parser: "babel"
+        parser: 'babel'
     };
-    if (fileExtension === "vue" || fileExtension === "svelte") {
-        baseConfig = __assign(__assign({}, baseConfig), { parser: "html" });
+    if (fileExtension === 'vue' || fileExtension === 'svelte') {
+        baseConfig = __assign(__assign({}, baseConfig), { parser: 'html' });
     }
     //please format my rendered template using prettier
     return prettier.format(content, baseConfig);
@@ -91,7 +91,9 @@ function renderAndCopyFile(file, fullPath, fullDestinationPath, config, crepoCon
                     return [4 /*yield*/, renderTemplate(fullPath, config, crepoConfig)];
                 case 1:
                     renderedTemplate = _a.sent();
-                    destPath = fullDestinationPath.split('.').pop() == 't' ? fullDestinationPath.substring(0, fullDestinationPath.length - 2) : fullDestinationPath;
+                    destPath = fullDestinationPath.split('.').pop() == 't'
+                        ? fullDestinationPath.substring(0, fullDestinationPath.length - 2)
+                        : fullDestinationPath;
                     renderedTemplate = formatTemplate(renderedTemplate, destPath);
                     return [4 /*yield*/, fs.writeFile(destPath, renderedTemplate)];
                 case 2:
@@ -186,19 +188,23 @@ var template = {
             }
         });
     }); },
-    getTemplateStructure: function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    getTemplateStructure: function (workingPath, config) { return __awaiter(void 0, void 0, void 0, function () {
         var templatePaths, basePath, isTypeScript, isPreact, isSvelte, isVue, isTsAndPreact, isJsAndPreact, isJsAndVanilla, isTsAndVanilla, languagePath, deleteUserDataCallbackFileName, uimEndPoint, fileName, frameworkPath, componentPath, AppVueConfig, stylesPath, assetsPath, binPath, serverTypeDefPath, frontendTypeDefPath, appFileName, appPath;
         return __generator(this, function (_a) {
             templatePaths = [];
-            basePath = path.join('.', 'templates');
+            basePath = path.join(workingPath, 'templates');
             isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT;
             isPreact = config.framework === CustomScriptFramework.PREACT;
             isSvelte = config.framework === CustomScriptFramework.SVELTE;
             isVue = config.framework === CustomScriptFramework.VUE;
-            isTsAndPreact = config.language == CustomScriptLanguage.TYPESCRIPT && config.framework === CustomScriptFramework.PREACT;
-            isJsAndPreact = config.language == CustomScriptLanguage.JAVASCRIPT && config.framework === CustomScriptFramework.PREACT;
-            isJsAndVanilla = config.language == CustomScriptLanguage.JAVASCRIPT && config.framework === CustomScriptFramework.VANILLA;
-            isTsAndVanilla = config.language == CustomScriptLanguage.TYPESCRIPT && config.framework === CustomScriptFramework.VANILLA;
+            isTsAndPreact = config.language == CustomScriptLanguage.TYPESCRIPT &&
+                config.framework === CustomScriptFramework.PREACT;
+            isJsAndPreact = config.language == CustomScriptLanguage.JAVASCRIPT &&
+                config.framework === CustomScriptFramework.PREACT;
+            isJsAndVanilla = config.language == CustomScriptLanguage.JAVASCRIPT &&
+                config.framework === CustomScriptFramework.VANILLA;
+            isTsAndVanilla = config.language == CustomScriptLanguage.TYPESCRIPT &&
+                config.framework === CustomScriptFramework.VANILLA;
             languagePath = path.join(basePath, !isTypeScript ? 'javascript' : 'typescript');
             // we only need an API / Backend if user collects user data (for delete endpoint) or is using the CREPO (crepo requests should be made in the backend)
             if (config.collectsUserData) {
@@ -257,15 +263,15 @@ var template = {
             });
             componentPath = path.join(basePath, 'component');
             templatePaths.push({
-                sourcePath: path.join(componentPath, "Card.js.t"),
+                sourcePath: path.join(componentPath, 'Card.js.t'),
                 destinationPath: path.join('.', 'custom-script', 'components', "Card." + (isSvelte ? 'svelte' : '') + (isVue ? 'vue' : '') + (isJsAndVanilla ? 'js' : '') + (isTsAndVanilla ? 'ts' : '') + (isTsAndPreact ? 'tsx' : '') + (isJsAndPreact ? 'jsx' : '')),
                 isFile: true
             });
             // we need to copy the App.vue file
             if (isVue) {
                 AppVueConfig = {
-                    absolutePath: path.join(basePath, "App.vue"),
-                    fileName: "App.vue"
+                    absolutePath: path.join(basePath, 'App.vue'),
+                    fileName: 'App.vue'
                 };
                 templatePaths.push({
                     sourcePath: AppVueConfig.absolutePath,
