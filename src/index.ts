@@ -19,7 +19,8 @@ const redBullChalk = chalk.hex(redBullRed)
 const log = console.log
 
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
-  init()
+  console.log("Current Working directory:" + process.cwd())
+  process.exit(0)
 }
 
 function exit(): void {
