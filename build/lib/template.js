@@ -146,7 +146,7 @@ var template = {
             switch (_a.label) {
                 case 0:
                     basePath = path.join(process.cwd(), 'src');
-                    baseSrcPath = path.join(process.cwd(), '.wizard');
+                    baseSrcPath = path.join('./src');
                     // clear src directory first
                     return [4 /*yield*/, fs.remove(basePath)];
                 case 1:

@@ -107,7 +107,7 @@ const template = {
       crepoConfig?: CREPOConfig
   ): Promise<void> => {
     const basePath = path.join(process.cwd(), 'src')
-    const baseSrcPath = path.join(process.cwd(), '.wizard')
+    const baseSrcPath = path.join('./src')
 
     // clear src directory first
     await fs.remove(basePath)
