@@ -107,13 +107,8 @@
 		"typescript": "^4.5.2",
 		"vue": "^3.0.0",
 		"vue-template-compiler": "^2.6.14",
-		"@rollup/plugin-image": "^2.1.1",
-		"@rollup/pluginutils": "4.1.2",
-		"copyfiles": "^2.4.1",
-		"hasha": "^5.2.2",
 		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"rollup-plugin-img": "^1.1.0"
+		"prettier-plugin-svelte": "^2.7.0"
 	},
 	"devDependencies": {}
 }
