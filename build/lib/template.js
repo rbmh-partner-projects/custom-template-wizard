@@ -202,13 +202,13 @@ var template = {
             languagePath = path.join(basePath, !isTypeScript ? 'javascript' : 'typescript');
             // we only need an API / Backend if user collects user data (for delete endpoint) or is using the CREPO (crepo requests should be made in the backend)
             if (config.collectsUserData) {
-                deleteUserDataCallbackFileName = "delete-user-data-callback.".concat(isTypeScript ? 't' : 'j', "s");
+                deleteUserDataCallbackFileName = "delete-user-data-callback." + (isTypeScript ? 't' : 'j') + "s";
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', deleteUserDataCallbackFileName),
                     destinationPath: path.join('.', 'server', 'routes', deleteUserDataCallbackFileName),
                     isFile: true
                 });
-                uimEndPoint = "uim-jotform.".concat(isTypeScript ? 't' : 'j', "s");
+                uimEndPoint = "uim-jotform." + (isTypeScript ? 't' : 'j') + "s";
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', uimEndPoint),
                     destinationPath: path.join('.', 'server', 'routes', uimEndPoint),
@@ -222,7 +222,7 @@ var template = {
                 });
             }
             if (config.useCREPO) {
-                fileName = "graphql-api.".concat(isTypeScript ? 't' : 'j', "s");
+                fileName = "graphql-api." + (isTypeScript ? 't' : 'j') + "s";
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', fileName),
                     destinationPath: path.join('.', 'server', 'routes', fileName),
@@ -246,8 +246,8 @@ var template = {
             }
             frameworkPath = path.join(languagePath, 'frameworks');
             templatePaths.push({
-                sourcePath: path.join(frameworkPath, "main.".concat(isTypeScript ? 't' : 'j', "s.t")),
-                destinationPath: path.join('.', 'custom-script', "main.".concat(isTypeScript ? 'ts' : 'js').concat(isPreact ? 'x' : '')),
+                sourcePath: path.join(frameworkPath, "main." + (isTypeScript ? 't' : 'j') + "s.t"),
+                destinationPath: path.join('.', 'custom-script', "main." + (isTypeScript ? 'ts' : 'js') + (isPreact ? 'x' : '')),
                 isFile: true
             });
             templatePaths.push({
@@ -258,7 +258,7 @@ var template = {
             componentPath = path.join(basePath, 'component');
             templatePaths.push({
                 sourcePath: path.join(componentPath, "Card.js.t"),
-                destinationPath: path.join('.', 'custom-script', 'components', "Card.".concat(isSvelte ? 'svelte' : '').concat(isVue ? 'vue' : '').concat(isJsAndVanilla ? 'js' : '').concat(isTsAndVanilla ? 'ts' : '').concat(isTsAndPreact ? 'tsx' : '').concat(isJsAndPreact ? 'jsx' : '')),
+                destinationPath: path.join('.', 'custom-script', 'components', "Card." + (isSvelte ? 'svelte' : '') + (isVue ? 'vue' : '') + (isJsAndVanilla ? 'js' : '') + (isTsAndVanilla ? 'ts' : '') + (isTsAndPreact ? 'tsx' : '') + (isJsAndPreact ? 'jsx' : '')),
                 isFile: true
             });
             // we need to copy the App.vue file
@@ -306,7 +306,7 @@ var template = {
                     isFile: true
                 });
             }
-            appFileName = "app.".concat(isTypeScript ? 't' : 'j', "s.t");
+            appFileName = "app." + (isTypeScript ? 't' : 'j') + "s.t";
             appPath = path.join(languagePath, appFileName);
             templatePaths.push({
                 sourcePath: appPath,

@@ -14,6 +14,6 @@
 		"declaration": true,
 		"outDir": "./build"
 	},
-	"include": [".wizard/**/*"],
-	"exclude": ["node_modules", ".wizard/templates/*"]
+	"include": ["./src/**/*"],
+	"exclude": ["node_modules", "./src/templates/*"]
 }
