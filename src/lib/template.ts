@@ -110,7 +110,6 @@ const template = {
 		crepoConfig?: CREPOConfig
 	): Promise<void> => {
 		const basePath = path.join(process.cwd(), 'src')
-		const baseSrcPath = path.join('./src')
 
 		// clear src directory first
 		await fs.remove(basePath)
@@ -122,7 +121,7 @@ const template = {
 		}
 
 		for (let entry of entries) {
-			const sourcePath = path.join(baseSrcPath, entry.sourcePath)
+			const sourcePath = entry.sourcePath
 			let destinationPath = path.join(basePath, entry.destinationPath)
 
 			// in case we got a file here, we need to get the path of that file, otherwise a folder with the filename will be created
@@ -157,6 +156,8 @@ const template = {
 	): Promise<CustomScriptTemplatePath[]> => {
 		const templatePaths: CustomScriptTemplatePath[] = []
 		const basePath = path.join(workingPath, 'templates')
+
+		console.log('Basepath', basePath)
 
 		const isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT
 

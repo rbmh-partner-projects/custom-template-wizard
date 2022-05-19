@@ -12,6 +12,7 @@ import files from './lib/files.js'
 import inquirer from './lib/inquirer.js'
 import template from './lib/template.js'
 import { ConsumerDataConfig, CREPOConfig, CustomScriptConfig } from './types'
+import URL from 'url'
 
 const redBullRed = '#f30b47'
 const redBullChalk = chalk.hex(redBullRed)
@@ -21,8 +22,10 @@ const log = console.log
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
 	console.log('Exec path' + process.execPath)
 
-	const buildPath = import.meta?.url
-	const packagePath = path.resolve(buildPath, '..', '..', 'src')
+	const buildPath = URL.fileURLToPath(import.meta?.url)
+	const packagePath = path.join(buildPath, '..', '..', 'src')
+
+	console.log('Package', packagePath)
 
 	init(packagePath)
 }

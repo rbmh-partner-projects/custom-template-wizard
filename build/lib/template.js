@@ -143,12 +143,11 @@ function renderAndCopyFilesInFolder(sourcePath, destinationPath, config, crepoCo
 }
 var template = {
     copyFiles: function (entries, config, crepoConfig) { return __awaiter(void 0, void 0, void 0, function () {
-        var basePath, baseSrcPath, graphQLConfigFile, _i, entries_1, entry, sourcePath, destinationPath;
+        var basePath, graphQLConfigFile, _i, entries_1, entry, sourcePath, destinationPath;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     basePath = path.join(process.cwd(), 'src');
-                    baseSrcPath = path.join('./src');
                     // clear src directory first
                     return [4 /*yield*/, fs.remove(basePath)];
                 case 1:
@@ -166,7 +165,7 @@ var template = {
                 case 4:
                     if (!(_i < entries_1.length)) return [3 /*break*/, 9];
                     entry = entries_1[_i];
-                    sourcePath = path.join(baseSrcPath, entry.sourcePath);
+                    sourcePath = entry.sourcePath;
                     destinationPath = path.join(basePath, entry.destinationPath);
                     // in case we got a file here, we need to get the path of that file, otherwise a folder with the filename will be created
                     fs.mkdirSync(entry.isFile ? path.parse(destinationPath).dir : destinationPath, {
@@ -193,6 +192,7 @@ var template = {
         return __generator(this, function (_a) {
             templatePaths = [];
             basePath = path.join(workingPath, 'templates');
+            console.log('Basepath', basePath);
             isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT;
             isPreact = config.framework === CustomScriptFramework.PREACT;
             isSvelte = config.framework === CustomScriptFramework.SVELTE;

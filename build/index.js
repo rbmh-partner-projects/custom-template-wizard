@@ -46,13 +46,15 @@ import config from './lib/config.js';
 import files from './lib/files.js';
 import inquirer from './lib/inquirer.js';
 import template from './lib/template.js';
+import URL from 'url';
 var redBullRed = '#f30b47';
 var redBullChalk = chalk.hex(redBullRed);
 var log = console.log;
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
     console.log('Exec path' + process.execPath);
-    var buildPath = (_a = import.meta) === null || _a === void 0 ? void 0 : _a.url;
-    var packagePath = path.resolve(buildPath, '..', '..', 'src');
+    var buildPath = URL.fileURLToPath((_a = import.meta) === null || _a === void 0 ? void 0 : _a.url);
+    var packagePath = path.join(buildPath, '..', '..', 'src');
+    console.log('Package', packagePath);
     init(packagePath);
 }
 function exit() {
