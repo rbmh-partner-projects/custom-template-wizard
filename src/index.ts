@@ -36,93 +36,11 @@ function exit(): void {
 }
 
 async function init(): Promise<void> {
-  // clear the terminal first
-  clear()
 
-  log(redBullChalk(figlet.textSync('Red Bull', {horizontalLayout: 'full'})))
 
-  let cfg: CustomScriptConfig = config.load()
+  console.log("Current Working directory:" + process.cwd())
+  return
 
-  // check if user already modified his scripts (checksum)
-  if (await files.sourceFilesModified(cfg)) {
-    log(
-        chalk.white(
-            `It looks like you have already modified your scripts. Using this wizard will ${chalk.bold(
-                'override your changes'
-            )}.`
-        )
-    )
-
-    const {confirmOverride} = await inquirer.askIfWantToOverrideChanges()
-
-    if (!confirmOverride) {
-      exit()
-    }
-  }
-
-  // ask for input
-
-  const consumerDataAnswers = await inquirer.askIfCollectingConsumerData()
-  const crepoAnswers = await inquirer.askIfUsingCREPO()
-
-  const preferredLanguage = await inquirer.askForPreferredLanguage()
-  const preferredFramework = await inquirer.askForPreferredFramework(
-      preferredLanguage
-  )
-
-  cfg = {
-    collectsUserData: consumerDataAnswers.collectsConsumerData,
-    useCREPO: crepoAnswers.useCREPO,
-    framework: preferredFramework,
-    language: preferredLanguage,
-  }
-
-  await setEnv(consumerDataAnswers, crepoAnswers)
-  await processConfig(cfg, crepoAnswers)
-
-  if (
-      cfg.collectsUserData &&
-      (!consumerDataAnswers.rbAccountTokenProd ||
-          !consumerDataAnswers.rbAccountTokenStg)
-  ) {
-    console.log(
-        chalk.yellow(
-            `${chalk.bold(
-                'Warning'
-            )}: You have decided not to import keys for the ${chalk.bold(
-                'Red Bull Account SDK'
-            )}. However, the examples provided require these keys. If you do want to provide them, please restart the setup.`
-        )
-    )
-  }
-
-  if (
-      cfg.useCREPO &&
-      (!crepoAnswers.crepoAPIKeyStg || !crepoAnswers.crepoAPIKeyProd)
-  ) {
-    console.log(
-        chalk.yellow(
-            `${chalk.bold(
-                'Warning'
-            )}: You decided not to import keys for the ${chalk.bold(
-                'CREPO SDK'
-            )}. However, the examples provided require these keys. If you do want to provide them, please restart the setup.`
-        )
-    )
-  }
-
-  const startDevEnv = await inquirer.askIfWantToStartDevEnv()
-
-  if (startDevEnv) {
-    try {
-      execSync('npm run start:dev', {
-        stdio: 'inherit',
-        killSignal: 'SIGINT',
-      })
-    } catch (e) {
-      process.exit(0)
-    }
-  }
 }
 
 export async function setEnv(
