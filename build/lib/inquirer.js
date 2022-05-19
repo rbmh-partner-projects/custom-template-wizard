@@ -194,7 +194,7 @@ var inq = {
                             type: 'list',
                             message: 'Which framework do you prefer for your work?',
                             choices: [
-                                "Vanilla " + (preferredLanguage === CustomScriptLanguage.JAVASCRIPT
+                                "Vanilla ".concat(preferredLanguage === CustomScriptLanguage.JAVASCRIPT
                                     ? 'JavaScript'
                                     : 'TypeScript'),
                                 'Preact',

@@ -54,7 +54,7 @@ function importFresh() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    newFileName = "app" + Date.now();
+                    newFileName = "app".concat(Date.now());
                     javaScriptFile = path.join(process.cwd(), 'src', 'server', 'app.js');
                     typeScriptFile = path.join(process.cwd(), 'src', 'server', 'app.ts');
                     if (fs.existsSync(javaScriptFile)) {
@@ -65,7 +65,7 @@ function importFresh() {
                         fs.renameSync(typeScriptFile, path.join(process.cwd(), 'src', 'server', newFileName + '.ts'));
                         newFileName += '.ts';
                     }
-                    return [4 /*yield*/, import("../../src/server/" + newFileName)];
+                    return [4 /*yield*/, import("../../src/server/".concat(newFileName))];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });
@@ -171,7 +171,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -227,7 +227,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -428,7 +428,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -484,7 +484,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -685,7 +685,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -741,7 +741,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -942,7 +942,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -998,7 +998,7 @@ describe('JavaScript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1207,7 +1207,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1263,7 +1263,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1464,7 +1464,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1520,7 +1520,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1721,7 +1721,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1777,7 +1777,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -1978,7 +1978,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();
@@ -2034,7 +2034,7 @@ describe('Typescript', function () {
                                     jotFormNotificationRequest.should.have.status(200);
                                     return [4 /*yield*/, chai
                                             .request(app["default"])
-                                            .get("/uim/submission/" + uimPayload.siloUserId)
+                                            .get("/uim/submission/".concat(uimPayload.siloUserId))
                                             .send()];
                                 case 6:
                                     jotFormSubmissionData = _a.sent();

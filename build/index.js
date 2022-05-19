@@ -48,7 +48,7 @@ import template from './lib/template.js';
 var redBullRed = '#f30b47';
 var redBullChalk = chalk.hex(redBullRed);
 var log = console.log;
-if (process.argv.length == 3 && process.argv[2] == 'init') {
+if (process.argv.length == 3 && process.argv[2] == 'setup') {
     init();
 }
 function exit() {
@@ -70,7 +70,7 @@ function init() {
                     return [4 /*yield*/, files.sourceFilesModified(cfg)];
                 case 1:
                     if (!_a.sent()) return [3 /*break*/, 3];
-                    log(chalk.white("It looks like you have already modified your scripts. Using this wizard will " + chalk.bold('override your changes') + "."));
+                    log(chalk.white("It looks like you have already modified your scripts. Using this wizard will ".concat(chalk.bold('override your changes'), ".")));
                     return [4 /*yield*/, inquirer.askIfWantToOverrideChanges()];
                 case 2:
                     confirmOverride = (_a.sent()).confirmOverride;
@@ -105,11 +105,11 @@ function init() {
                     if (cfg.collectsUserData &&
                         (!consumerDataAnswers.rbAccountTokenProd ||
                             !consumerDataAnswers.rbAccountTokenStg)) {
-                        console.log(chalk.yellow(chalk.bold('Warning') + ": You have decided not to import keys for the " + chalk.bold('Red Bull Account SDK') + ". However, the examples provided require these keys. If you do want to provide them, please restart the setup."));
+                        console.log(chalk.yellow("".concat(chalk.bold('Warning'), ": You have decided not to import keys for the ").concat(chalk.bold('Red Bull Account SDK'), ". However, the examples provided require these keys. If you do want to provide them, please restart the setup.")));
                     }
                     if (cfg.useCREPO &&
                         (!crepoAnswers.crepoAPIKeyStg || !crepoAnswers.crepoAPIKeyProd)) {
-                        console.log(chalk.yellow(chalk.bold('Warning') + ": You decided not to import keys for the " + chalk.bold('CREPO SDK') + ". However, the examples provided require these keys. If you do want to provide them, please restart the setup."));
+                        console.log(chalk.yellow("".concat(chalk.bold('Warning'), ": You decided not to import keys for the ").concat(chalk.bold('CREPO SDK'), ". However, the examples provided require these keys. If you do want to provide them, please restart the setup.")));
                     }
                     return [4 /*yield*/, inquirer.askIfWantToStartDevEnv()];
                 case 10:
@@ -139,11 +139,11 @@ export function setEnv(consumerConfig, crepoConfig) {
             fileStream = fs.createWriteStream(filePath, {
                 flags: 'w'
             });
-            fileStream.write("REDBULL_ACCOUNT_TOKEN_STAGING=" + ((_a = consumerConfig.rbAccountTokenStg) !== null && _a !== void 0 ? _a : '') + "\n");
-            fileStream.write("REDBULL_ACCOUNT_TOKEN_PRODUCTION=" + ((_b = consumerConfig.rbAccountTokenProd) !== null && _b !== void 0 ? _b : '') + "\n");
-            fileStream.write("JOTFORM_ID=" + ((_c = consumerConfig.jotFormId) !== null && _c !== void 0 ? _c : '') + "\n");
-            fileStream.write("CREPO_API_KEY_STAGING=" + ((_d = crepoConfig.crepoAPIKeyStg) !== null && _d !== void 0 ? _d : '') + "\n");
-            fileStream.write("CREPO_API_KEY_PRODUCTION=" + ((_e = crepoConfig.crepoAPIKeyProd) !== null && _e !== void 0 ? _e : '') + "\n");
+            fileStream.write("REDBULL_ACCOUNT_TOKEN_STAGING=".concat((_a = consumerConfig.rbAccountTokenStg) !== null && _a !== void 0 ? _a : '', "\n"));
+            fileStream.write("REDBULL_ACCOUNT_TOKEN_PRODUCTION=".concat((_b = consumerConfig.rbAccountTokenProd) !== null && _b !== void 0 ? _b : '', "\n"));
+            fileStream.write("JOTFORM_ID=".concat((_c = consumerConfig.jotFormId) !== null && _c !== void 0 ? _c : '', "\n"));
+            fileStream.write("CREPO_API_KEY_STAGING=".concat((_d = crepoConfig.crepoAPIKeyStg) !== null && _d !== void 0 ? _d : '', "\n"));
+            fileStream.write("CREPO_API_KEY_PRODUCTION=".concat((_e = crepoConfig.crepoAPIKeyProd) !== null && _e !== void 0 ? _e : '', "\n"));
             fileStream.end();
             return [2 /*return*/];
         });

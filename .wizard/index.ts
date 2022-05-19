@@ -18,7 +18,7 @@ const redBullChalk = chalk.hex(redBullRed)
 
 const log = console.log
 
-if (process.argv.length == 3 && process.argv[2] == 'init') {
+if (process.argv.length == 3 && process.argv[2] == 'setup') {
   init()
 }
 
