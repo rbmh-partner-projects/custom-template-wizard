@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
-import { img } from '../../.wizard/lib/imgPlugin';
+import { img } from './imgPlugin';
 {{ if (it.framework === 2)  { }}
 import svelte from 'rollup-plugin-svelte';
 {{ } }}

@@ -157,8 +157,6 @@ const template = {
 		const templatePaths: CustomScriptTemplatePath[] = []
 		const basePath = path.join(workingPath, 'templates')
 
-		console.log('Basepath', basePath)
-
 		const isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT
 
 		const isPreact = config.framework === CustomScriptFramework.PREACT
@@ -322,6 +320,18 @@ const template = {
 			destinationPath: path.join('.', 'server', 'bin'),
 			isFile: false,
 		})
+
+    // add the imgPlugin
+    const imgPluginConfig = {
+      absolutePath: path.join(basePath, 'imgPlugin.js'),
+      fileName: 'imgPlugin.js'
+    }
+
+    templatePaths.push({
+      sourcePath: imgPluginConfig.absolutePath,
+      destinationPath: path.join('.', 'custom-script', imgPluginConfig.fileName),
+      isFile: true,
+    })
 
 		// copy type definitions
 		if (isTypeScript) {
