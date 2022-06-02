@@ -188,7 +188,7 @@ var template = {
         });
     }); },
     getTemplateStructure: function (workingPath, config) { return __awaiter(void 0, void 0, void 0, function () {
-        var templatePaths, basePath, isTypeScript, isPreact, isSvelte, isVue, isTsAndPreact, isJsAndPreact, isJsAndVanilla, isTsAndVanilla, languagePath, deleteUserDataCallbackFileName, uimEndPoint, fileName, frameworkPath, componentPath, AppVueConfig, stylesPath, assetsPath, binPath, imgPluginConfig, serverTypeDefPath, frontendTypeDefPath, appFileName, appPath;
+        var templatePaths, basePath, isTypeScript, isPreact, isSvelte, isVue, isTsAndPreact, isJsAndPreact, isJsAndVanilla, isTsAndVanilla, languagePath, deleteUserDataCallbackFileName, uimEndPoint, fileName, frameworkPath, componentPath, AppVueConfig, stylesPath, assetsPath, binPath, serverTypeDefPath, frontendTypeDefPath, appFileName, appPath;
         return __generator(this, function (_a) {
             templatePaths = [];
             basePath = path.join(workingPath, 'templates');
@@ -295,15 +295,6 @@ var template = {
                 sourcePath: binPath,
                 destinationPath: path.join('.', 'server', 'bin'),
                 isFile: false
-            });
-            imgPluginConfig = {
-                absolutePath: path.join(basePath, 'imgPlugin.js'),
-                fileName: 'imgPlugin.js'
-            };
-            templatePaths.push({
-                sourcePath: imgPluginConfig.absolutePath,
-                destinationPath: path.join('.', 'custom-script', imgPluginConfig.fileName),
-                isFile: true
             });
             // copy type definitions
             if (isTypeScript) {

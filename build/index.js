@@ -162,7 +162,6 @@ export function processConfig(cfg, crepoConfig, workingPath) {
             switch (_a.label) {
                 case 0:
                     // get template structure
-                    console.log('My working path', workingPath);
                     if (!workingPath) {
                         workingPath = process.cwd();
                     }

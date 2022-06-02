@@ -321,18 +321,6 @@ const template = {
 			isFile: false,
 		})
 
-    // add the imgPlugin
-    const imgPluginConfig = {
-      absolutePath: path.join(basePath, 'imgPlugin.js'),
-      fileName: 'imgPlugin.js'
-    }
-
-    templatePaths.push({
-      sourcePath: imgPluginConfig.absolutePath,
-      destinationPath: path.join('.', 'custom-script', imgPluginConfig.fileName),
-      isFile: true,
-    })
-
 		// copy type definitions
 		if (isTypeScript) {
 			const serverTypeDefPath = path.join(languagePath, 'api', 'types.d.ts')
