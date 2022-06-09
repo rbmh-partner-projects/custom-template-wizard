@@ -122,7 +122,7 @@ export default {
     babel({
       babelHelpers: 'runtime',
       exclude: /node_modules\/(?!svelte)/,
-      extensions: ['.js', '.cjs', '.html', '.svelte', '.tsx'],
+      extensions: ['.js', '.cjs', '.html', '.svelte', '.tsx', '.ts'],
     }),
     commonjs(),
     PRODUCTION && terser(),
