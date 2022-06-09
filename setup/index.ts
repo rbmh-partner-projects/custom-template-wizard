@@ -169,7 +169,6 @@ export async function processConfig(
 	workingPath?: string
 ): Promise<void> {
 	// get template structure
-  console.log(workingPath)
 	if (!workingPath) {
 		workingPath = process.cwd()
 	}
