@@ -23,7 +23,7 @@ if (process.argv.length == 3 && process.argv[2] == 'setup') {
 	console.log('Exec path' + process.execPath)
 
 	const buildPath = URL.fileURLToPath(import.meta?.url)
-	const packagePath = path.join(buildPath, '..', '..', 'src')
+	const packagePath = path.join(buildPath, '..', '..')
 
 	console.log('Package', packagePath)
 
@@ -169,7 +169,7 @@ export async function processConfig(
 	workingPath?: string
 ): Promise<void> {
 	// get template structure
-
+  console.log(workingPath)
 	if (!workingPath) {
 		workingPath = process.cwd()
 	}

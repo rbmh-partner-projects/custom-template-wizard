@@ -155,7 +155,7 @@ const template = {
 		config: CustomScriptConfig
 	): Promise<CustomScriptTemplatePath[]> => {
 		const templatePaths: CustomScriptTemplatePath[] = []
-		const basePath = path.join(workingPath, 'templates')
+		const basePath = path.join(workingPath, 'setup', 'templates')
 
 		const isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT
 

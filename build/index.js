@@ -53,7 +53,7 @@ var log = console.log;
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
     console.log('Exec path' + process.execPath);
     var buildPath = URL.fileURLToPath((_a = import.meta) === null || _a === void 0 ? void 0 : _a.url);
-    var packagePath = path.join(buildPath, '..', '..', 'src');
+    var packagePath = path.join(buildPath, '..', '..');
     console.log('Package', packagePath);
     init(packagePath);
 }
@@ -162,6 +162,7 @@ export function processConfig(cfg, crepoConfig, workingPath) {
             switch (_a.label) {
                 case 0:
                     // get template structure
+                    console.log(workingPath);
                     if (!workingPath) {
                         workingPath = process.cwd();
                     }

@@ -191,7 +191,7 @@ var template = {
         var templatePaths, basePath, isTypeScript, isPreact, isSvelte, isVue, isTsAndPreact, isJsAndPreact, isJsAndVanilla, isTsAndVanilla, languagePath, deleteUserDataCallbackFileName, uimEndPoint, fileName, frameworkPath, componentPath, AppVueConfig, stylesPath, assetsPath, binPath, serverTypeDefPath, frontendTypeDefPath, appFileName, appPath;
         return __generator(this, function (_a) {
             templatePaths = [];
-            basePath = path.join(workingPath, 'templates');
+            basePath = path.join(workingPath, 'setup', 'templates');
             isTypeScript = config.language == CustomScriptLanguage.TYPESCRIPT;
             isPreact = config.framework === CustomScriptFramework.PREACT;
             isSvelte = config.framework === CustomScriptFramework.SVELTE;
