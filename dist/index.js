@@ -35,6 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _a;
 import chalk from 'chalk';
 import { execSync } from 'child_process';
 import clear from 'clear';
@@ -45,11 +46,16 @@ import config from './lib/config.js';
 import files from './lib/files.js';
 import inquirer from './lib/inquirer.js';
 import template from './lib/template.js';
+import URL from 'url';
 var redBullRed = '#f30b47';
 var redBullChalk = chalk.hex(redBullRed);
 var log = console.log;
 if (process.argv.length == 3 && process.argv[2] == 'setup') {
-    init();
+    console.log('Exec path' + process.execPath);
+    var buildPath = URL.fileURLToPath((_a = import.meta) === null || _a === void 0 ? void 0 : _a.url);
+    var packagePath = path.join(buildPath, '..', '..');
+    console.log('Package', packagePath);
+    init(packagePath);
 }
 function exit() {
     log();
@@ -57,7 +63,7 @@ function exit() {
     log();
     process.exit();
 }
-function init() {
+function init(workingPath) {
     return __awaiter(this, void 0, void 0, function () {
         var cfg, confirmOverride, consumerDataAnswers, crepoAnswers, preferredLanguage, preferredFramework, startDevEnv;
         return __generator(this, function (_a) {
@@ -99,7 +105,7 @@ function init() {
                     return [4 /*yield*/, setEnv(consumerDataAnswers, crepoAnswers)];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, processConfig(cfg, crepoAnswers)];
+                    return [4 /*yield*/, processConfig(cfg, crepoAnswers, workingPath)];
                 case 9:
                     _a.sent();
                     if (cfg.collectsUserData &&
@@ -149,12 +155,17 @@ export function setEnv(consumerConfig, crepoConfig) {
         });
     });
 }
-export function processConfig(cfg, crepoConfig) {
+export function processConfig(cfg, crepoConfig, workingPath) {
     return __awaiter(this, void 0, void 0, function () {
         var templateStructure;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, template.getTemplateStructure(cfg)];
+                case 0:
+                    // get template structure
+                    if (!workingPath) {
+                        workingPath = process.cwd();
+                    }
+                    return [4 /*yield*/, template.getTemplateStructure(workingPath, cfg)];
                 case 1:
                     templateStructure = _a.sent();
                     return [4 /*yield*/, template.copyFiles(templateStructure, cfg, crepoConfig)

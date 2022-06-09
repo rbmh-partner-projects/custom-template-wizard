@@ -12,8 +12,8 @@
 		"sourceMap": true,
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
-		"outDir": "./build"
+		"outDir": "./dist"
 	},
-	"include": [".wizard/**/*"],
-	"exclude": ["node_modules", ".wizard/templates/*"]
+	"include": ["./setup/**/*"],
+	"exclude": ["node_modules", "./setup/templates/*"]
 }

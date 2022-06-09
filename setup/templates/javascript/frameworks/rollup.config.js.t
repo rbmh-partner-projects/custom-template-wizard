@@ -1,3 +1,7 @@
+import {createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, statSync} from 'fs';
+import {createFilter} from '@rollup/pluginutils';
+import hasha from 'hasha';
+import {basename, extname, relative} from 'path';
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -6,7 +10,7 @@ import dotenv from 'dotenv';
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
-import { img } from '../../.wizard/lib/imgPlugin';
+
 {{ if (it.framework === 2)  { }}
 import svelte from 'rollup-plugin-svelte';
 {{ } }}
@@ -23,6 +27,60 @@ const inputFileFullPath = path.join('.', 'src', 'custom-script', 'main.js')
 {{ if (it.framework === 1)  { }}
 const inputFileFullPath = path.join('.', 'src', 'custom-script', 'main.jsx')
 {{ } }}
+
+const mimeMap = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.webp': 'image/webp'
+};
+
+function img(opt = {}) {
+  const extensions = opt.extensions || /\.(png|jpg|jpeg|gif|svg|webp)$/;
+  const filter = createFilter(opt.include, opt.exclude);
+
+  return {
+    name: 'image',
+    load(id) {
+      if (!filter(id)) return null;
+
+      const ext = extname(id);
+      if (!extensions.test(ext)) return null; // not an image
+
+      if (statSync(id).size <= (opt.limit || 8192)) { // use base64
+        return `export default "data:${mimeMap[ext]};base64,${readFileSync(id, 'base64')}"`;
+      } else { //copy file to distPath
+
+        const output = path.resolve(opt.output || ''); 
+
+        if (!existsSync(output)) {
+          const dirs = output.split('/');
+          mkdirSync(output, {
+            recursive: true
+          })
+        }
+        let name = basename(id);
+
+        if (opt.hash) {
+          const code = readFileSync(id).toString();
+          const hash = hasha(code, {algorithm: 'md5'});
+          name = `${basename(id, ext)}-${hash}${ext}`;
+        }
+        const outputFile = path.resolve(output, name)
+        const outputPath = output.split('/public').pop()
+        createReadStream(id).pipe(createWriteStream(outputFile));
+
+        // if statement to look if it is stagging, production... .env
+        return `
+          let img = "https://${opt.baseUrl}${outputPath}/${name}"
+          export default img
+          `.trim();
+      }
+    }
+  }
+}
 
 export default {
   input: inputFileFullPath,
