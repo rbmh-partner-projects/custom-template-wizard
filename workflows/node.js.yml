@@ -14,6 +14,7 @@ env:
   REDBULL_ACCOUNT_TOKEN_PRODUCTION: ${{ secrets.REDBULL_ACCOUNT_TOKEN_PRODUCTION }}
   CREPO_API_KEY_STAGING: ${{ secrets.CREPO_API_KEY_STAGING }}
   CREPO_API_KEY_PRODUCTION: ${{ secrets.CREPO_API_KEY_PRODUCTION }}
+  COSMOS_AUTH_TOKENS: ${{ secrets.COSMOS_AUTH_TOKENS }}
 
 jobs:
   build:
@@ -31,14 +32,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Create a .npmrc file for the github private repository
-        uses: FerLuisxd/create-npmrc@3
-        with:
-          org_name: lig0  
-          env:
-            COSMOS_AUTH_TOKENS: ${{ secrets.COSMOS_AUTH_TOKENS }}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-        env:
-          CI: true
