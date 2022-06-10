@@ -14,6 +14,8 @@ env:
   REDBULL_ACCOUNT_TOKEN_PRODUCTION: ${{ secrets.REDBULL_ACCOUNT_TOKEN_PRODUCTION }}
   CREPO_API_KEY_STAGING: ${{ secrets.CREPO_API_KEY_STAGING }}
   CREPO_API_KEY_PRODUCTION: ${{ secrets.CREPO_API_KEY_PRODUCTION }}
+  COSMOS_AUTH_TOKENS: ${{ secrets.COSMOS_AUTH_TOKENS }}
+  CREPO_PASSWORD: ${{ secrets.CREPO_PASSWORD }}
 
 jobs:
   build:
@@ -32,5 +34,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
