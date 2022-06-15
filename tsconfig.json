@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"jsx": "preserve",
+		"jsxFactory": "h",
+		"jsxFragmentFactory": "Fragment",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"lib": ["ES2020", "DOM"],
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"outDir": "./dist"
+	},
+	"include": ["./setup/**/*"],
+	"exclude": ["node_modules", "./setup/templates/*"]
+}
