@@ -1,5 +1,5 @@
 {
-	"name": "custom-template-wizard",
+  "name": "custom-template-wizard",
 	"version": "1.0.0",
 	"bin": {
 		"custom-template": "./dist/index.js"
