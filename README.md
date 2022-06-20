@@ -12,5 +12,8 @@
 <h3 align="center">Custom Script - Wizard</h3>
 <br />
 <p>
-  This is the wizard for the custom-template repository. The setup for the CLI is placed here.
+  This is the wizard for the custom-template repository. 
+</p>
+<p>
+  The current repository is mainly edited from internal people. Nevertheless, if you find a bug don't hesitate to contact the Developer Relations Team @ devrel@redbull.com
 </p>
