@@ -33,7 +33,7 @@
     "@cosmos/foundation": "^1.21.0",
     "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.5.0",
     "@crepo/crepo-graphql-api-node-sdk-esm": "^1.5.0",
-    "@crepo/crepo-schema-validation-sdk": "^3.2.0",
+    "@crepo/crepo-schema-validation-sdk": "^1.6.3",
     "@octokit/auth-basic": "^1.4.8",
     "@octokit/rest": "^18.12.0",
     "@rollup/plugin-alias": "^3.1.8",
