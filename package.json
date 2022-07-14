@@ -30,7 +30,6 @@
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-typescript": "^7.16.0",
-    "@cosmos/foundation": "^1.21.0",
     "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.5.0",
     "@crepo/crepo-graphql-api-node-sdk-esm": "^1.5.0",
     "@crepo/crepo-schema-validation-sdk": "^1.6.3",
