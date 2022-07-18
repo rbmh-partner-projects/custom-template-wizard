@@ -117,7 +117,11 @@
     "hasha": "^5.2.2",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
-    "rollup-plugin-img": "^1.1.0"
+    "rollup-plugin-img": "^1.1.0",
+    "@cosmos/foundation": "^1.21.0",
+    "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.5.0",
+    "@crepo/crepo-graphql-api-node-sdk-esm": "^1.5.0",
+    "@crepo/crepo-schema-validation-sdk": "^1.6.3"
   },
   "babel": {
     "presets": [
