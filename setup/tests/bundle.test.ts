@@ -9,7 +9,7 @@ import path from 'path'
 import {processConfig, setEnv} from '../index'
 import {CustomScriptConfig} from '../types'
 import {CustomScriptFramework, CustomScriptLanguage} from '../types/enum'
-import uimPayload from './resources/uim_payload.json'
+import uimPayload from './resources/uim_payload.json' assert {type: "json"}  
 
 dotenv.config()
 
