@@ -5,6 +5,7 @@ import panel from './components/Card'
 {{ } }}
 
 {{ if (it.framework === 1)  { }}
+import "./styles/cosmos.less";
 import { render } from 'preact';
 import Card from './components/Card.jsx';
 {{ } }}

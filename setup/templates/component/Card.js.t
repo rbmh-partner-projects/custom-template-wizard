@@ -46,22 +46,30 @@ export default function Card() {
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 0)  { }}
-import { h, render, Component } from 'preact';
+import { h, render, Component } from "preact";
+import { CosmosDefaultCard } from '@cosmos/web/preact';
 
-import exampleImg from '../assets/example.svg';
+import rbLogo from "../assets/rb-logo.jpeg";
 
 class Card extends Component {
-  state = {
-    exaggeration: 'just so fantastic!!',
-  }
 
   render() {
     return (
       <div className="rb-example__panel">
-        <div className="rb-example__card">
-        <img src={exampleImg} className="example-img" alt="Example-Image"/>
-          <h3>Example Card component</h3>
-          <p>Developing on the Red Bull Platform with Preact is {this.state.exaggeration}!</p>
+        <div className="cosmos-example__panel">
+          <CosmosDefaultCard 
+            appearance="light" 
+            headline="Example Card component" 
+            cover="false"
+            image= {rbLogo}
+            image-alt="Example-Image" 
+            rel="noopener noreferrer" 
+            tag="Example" 
+            target="_blank" 
+            text="Developing on the Red Bull Platform with Preact is just so fantastic!"
+            layout="normal"
+            >
+          </CosmosDefaultCard>
         </div>
       </div>
     );
