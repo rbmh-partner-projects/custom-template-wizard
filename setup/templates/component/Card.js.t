@@ -30,23 +30,36 @@ export default panel;
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 1)  { }}
-import { useState } from 'preact/hooks';
+import { CosmosDefaultCard } from "@cosmos/web/preact";
+import { h } from "preact";
+import type { JSX } from "@cosmos/web";
 
-import exampleImg from '../assets/example.svg';
+import rbLogo from  "../assets/rb-logo.jpeg";
+
+const cardProps : JSX.CosmosDefaultCard = {
+  image: rbLogo,
+  imageAlt: 'Example-Image',
+  appearance: 'light',
+  headline: 'Example Card component',
+  cover: false,
+  text: 'Developing on the Red Bull Platform with Preact is just so fantastic!',
+  rel: "noopener noreferrer",
+  tag: "example",
+  target: "_blank",
+  layout: "normal"
+}
 
 export default function Card() {
-
-  const [title, setTitle] = useState("Example Card component");
- 
   return (
-    <div class="rb-example__panel">
-      <div class="rb-example__card">
-        <img src={exampleImg} class="example-img" alt="example-img" />
-        <h3>{title}</h3>
-        <p>Developing on the Red Bull Platform with Preact is awesome!</p>
+    <div className="rb-example__panel">
+      <div className="cosmos-example__panel">
+        <CosmosDefaultCard
+          {...cardProps}
+        >
+        </CosmosDefaultCard>
       </div>
-  </div>
-  )
+    </div>
+  );
 }
 
 {{ } }}

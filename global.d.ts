@@ -8,6 +8,17 @@ declare module '*.vue' {
   export default component
 }
 
+// Cosmos
+import type { JSX } from "@cosmos/web";
+// Add Intrinsic Elements to allow Cosmos custom elements tag names to be used in JSX
+type LocalIntrinsicElements = JSX.IntrinsicElements;
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends LocalIntrinsicElements {}
+  }
+}
+
 declare module '*.jpeg';
 declare module '*.png';
 declare module '*.jpg';
