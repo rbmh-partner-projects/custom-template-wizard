@@ -1,26 +1,32 @@
 {{ if (it.framework === 0)  { }}
-import exampleImg from "../assets/example.svg";
+import { defineCosmosDefaultCard } from "@cosmos/web";
+import rbLogo from "../assets/rb-logo.jpeg";
 
 const panel = document.createElement("div");
 panel.classList.add("rb-example__panel");
 
-const img = {
-    src: exampleImg,
-    alt: "example-img",
-    class: "example-img",
-  };
-  const exampleImage = `<img src=${img.src} class=${img.class} alt=${img.alt}>`;
+defineCosmosDefaultCard();
 
+const cosmosCard = `<cosmos-default-card 
+                      appearance="light" 
+                      headline="Example Card component" 
+                      cover="false" image=${rbLogo} 
+                      image-alt="Example-Image" 
+                      rel="noopener noreferrer" 
+                      tag="Example" 
+                      target="_blank" 
+                      text="Developing on the Red Bull Platform with Vanilla JavaScript is fun!!!!"
+                      layout="normal" >
+                    </cosmos-default-card>`
 
 const card = document.createElement("div");
-card.innerHTML =
-  exampleImage +
-  "<h3>Example Card component</h3><p>Developing on the Red Bull Platform with Vanilla JavaScript is fun!!!</p>";
+card.innerHTML = cosmosCard;
 
-card.classList.add("rb-example__card");
+card.classList.add("cosmos-example__panel");
 panel.appendChild(card);
 
 export default panel;
+
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 1)  { }}

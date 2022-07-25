@@ -1,6 +1,7 @@
 import './styles/main.less';
 
 {{ if (it.framework === 0)  { }}
+import "./styles/cosmos.less";
 import panel from './components/Card'
 {{ } }}
 
