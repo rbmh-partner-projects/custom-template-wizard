@@ -5,7 +5,7 @@ import "./styles/cosmos.less";
 import panel from './components/Card'
 {{ } }}
 
-{{ if (it.framework === 1 && it.language === 1)}}
+{{ if (it.framework === 1 && it.language === 1) { }}
 import "./styles/cosmos.less";
 {{ } }}
 
