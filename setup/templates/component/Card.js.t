@@ -1,3 +1,7 @@
+{{ if (it.framework === 0 && it.language === 1)  { }}
+import "./styles/cosmos.less";
+{{ } }}
+
 {{ if (it.framework === 0)  { }}
 import { defineCosmosDefaultCard } from "@cosmos/web";
 import rbLogo from "../assets/rb-logo.jpeg";
@@ -30,6 +34,7 @@ export default panel;
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 1)  { }}
+import "./styles/cosmos.less";
 import { CosmosDefaultCard } from "@cosmos/web/preact";
 import { h } from "preact";
 import type { JSX } from "@cosmos/web";
