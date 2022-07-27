@@ -1,67 +1,94 @@
 {{ if (it.framework === 0)  { }}
-import exampleImg from "../assets/example.svg";
+import { defineCosmosDefaultCard } from "@cosmos/web";
+import rbLogo from "../assets/rb-logo.jpeg";
 
 const panel = document.createElement("div");
 panel.classList.add("rb-example__panel");
 
-const img = {
-    src: exampleImg,
-    alt: "example-img",
-    class: "example-img",
-  };
-  const exampleImage = `<img src=${img.src} class=${img.class} alt=${img.alt}>`;
+defineCosmosDefaultCard();
 
+const cosmosCard = `<cosmos-default-card 
+                      appearance="light" 
+                      headline="Example Card component" 
+                      cover="false" image=${rbLogo} 
+                      image-alt="Example-Image" 
+                      rel="noopener noreferrer" 
+                      tag="Example" 
+                      target="_blank" 
+                      text="Developing on the Red Bull Platform with Vanilla JavaScript is fun!!!!"
+                      layout="normal" >
+                    </cosmos-default-card>`
 
 const card = document.createElement("div");
-card.innerHTML =
-  exampleImage +
-  "<h3>Example Card component</h3><p>Developing on the Red Bull Platform with Vanilla JavaScript is fun!!!</p>";
+card.innerHTML = cosmosCard;
 
-card.classList.add("rb-example__card");
+card.classList.add("cosmos-example__panel");
 panel.appendChild(card);
 
 export default panel;
+
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 1)  { }}
-import { useState } from 'preact/hooks';
+import { CosmosDefaultCard } from "@cosmos/web/preact";
+import { h } from "preact";
+import type { JSX } from "@cosmos/web";
 
-import exampleImg from '../assets/example.svg';
+import rbLogo from  "../assets/rb-logo.jpeg";
+
+const cardProps : JSX.CosmosDefaultCard = {
+  image: rbLogo,
+  imageAlt: 'Example-Image',
+  appearance: 'light',
+  headline: 'Example Card component',
+  cover: false,
+  text: 'Developing on the Red Bull Platform with Preact is just so fantastic!',
+  rel: "noopener noreferrer",
+  tag: "example",
+  target: "_blank",
+  layout: "normal"
+}
 
 export default function Card() {
-
-  const [title, setTitle] = useState("Example Card component");
- 
   return (
-    <div class="rb-example__panel">
-      <div class="rb-example__card">
-        <img src={exampleImg} class="example-img" alt="example-img" />
-        <h3>{title}</h3>
-        <p>Developing on the Red Bull Platform with Preact is awesome!</p>
+    <div className="rb-example__panel">
+      <div className="cosmos-example__panel">
+        <CosmosDefaultCard
+          {...cardProps}
+        >
+        </CosmosDefaultCard>
       </div>
-  </div>
-  )
+    </div>
+  );
 }
 
 {{ } }}
 
 {{ if (it.framework === 1 && it.language === 0)  { }}
-import { h, render, Component } from 'preact';
+import { h, render, Component } from "preact";
+import { CosmosDefaultCard } from '@cosmos/web/preact';
 
-import exampleImg from '../assets/example.svg';
+import rbLogo from "../assets/rb-logo.jpeg";
 
 class Card extends Component {
-  state = {
-    exaggeration: 'just so fantastic!!',
-  }
 
   render() {
     return (
       <div className="rb-example__panel">
-        <div className="rb-example__card">
-        <img src={exampleImg} className="example-img" alt="Example-Image"/>
-          <h3>Example Card component</h3>
-          <p>Developing on the Red Bull Platform with Preact is {this.state.exaggeration}!</p>
+        <div className="cosmos-example__panel">
+          <CosmosDefaultCard 
+            appearance="light" 
+            headline="Example Card component" 
+            cover="false"
+            image= {rbLogo}
+            image-alt="Example-Image" 
+            rel="noopener noreferrer" 
+            tag="Example" 
+            target="_blank" 
+            text="Developing on the Red Bull Platform with Preact is just so fantastic!"
+            layout="normal"
+            >
+          </CosmosDefaultCard>
         </div>
       </div>
     );
