@@ -111,8 +111,8 @@
   },
   "devDependencies": {
     "@cosmos/foundation": "^1.33.1",
-    "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.6.3",
-    "@crepo/crepo-graphql-api-node-sdk-esm": "^1.6.3",
+    "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.6.4",
+    "@crepo/crepo-graphql-api-node-sdk-esm": "^1.6.4",
     "@crepo/crepo-schema-validation-sdk": "^4.9.0",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/pluginutils": "4.2.1",
