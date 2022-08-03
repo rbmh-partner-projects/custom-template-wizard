@@ -1,7 +1,7 @@
 import {createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, statSync} from 'fs';
 import {createFilter} from '@rollup/pluginutils';
 import hasha from 'hasha';
-import {basename, extname, relative} from 'path';
+import {basename, extname } from 'path';
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -126,7 +126,7 @@ export default {
       output: 'src/server/public/assets',
       _slash: true,
       exclude: 'node_modules/**',
-      baseUrl: process.env.BASE_SSL_URL ?? 'localhost:3000'
+      baseUrl: `${process.env.BASE_SSL_URL ?? "localhost:3000"}`,
     }),
   ],
 }
