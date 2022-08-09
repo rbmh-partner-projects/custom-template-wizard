@@ -53,15 +53,14 @@ function isHerokuCLIUAuthenticated(): Promise<boolean> {
   })
 }
 
-function isPartOfPipeline(pipeLineName: string): Promise<boolean> {
+function isPartOfApp(appName: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
-    exec('heroku pipelines', (err, stdout, stderr) => {
+    exec(`heroku apps:info ${appName}`, (err, stdout, stderr) => {
       if (err) {
         resolve(false)
       } else {
-        const pipelines = stdout.split('\n')
-
-        resolve(pipelines.some((x) => x === pipeLineName))
+        const hasAccess = stdout.indexOf('Web URL') >= 0
+        resolve(hasAccess)
       }
     })
   })
@@ -97,7 +96,7 @@ async function init() {
   }).start()
 
   // repository name == heroku pipeline name [-stg, -prod]
-  const repositoryName = await getGitRepositoryName()
+  //const repositoryName = await getGitRepositoryName()
 
   if (!(await isHerokuCLIInstalled())) {
     loadingSpinner.fail()
@@ -127,11 +126,29 @@ async function init() {
     return
   }
 
-  if (!(await isPartOfPipeline(repositoryName))) {
+
+  loadingSpinner.succeed()
+
+  // since we suffix apps in heroku with random characters, we cannot guess the app name anymore
+  // e.g. rb-unlocked-xy-stg / rb-unlocked-cd-prod
+  const appQuestion: QuestionCollection = [
+    {
+      name: 'fullAppName',
+      type: 'input',
+      message:
+          'Type in the name of the Heroku app you want to synchronize your environment variables to:',
+    },
+  ]
+
+  const { fullAppName } = await inquirer.prompt(appQuestion)
+
+  loadingSpinner.start()
+
+  if (!(await isPartOfApp(fullAppName))) {
     loadingSpinner.fail()
     console.log(
         chalk.yellow.bold(
-            `It looks like you are not part of your projects Heroku Pipeline "${repositoryName}" yet. Please request access from your technical admin.`
+            `It looks like you are not part of your projects Heroku App "${fullAppName}" yet. Please request access from your technical admin.`
         )
     )
     console.log(chalk.yellow.bold('Aborting ...'))
@@ -140,27 +157,14 @@ async function init() {
 
   loadingSpinner.succeed()
 
-  // at this stage we have heroku CLI installed, are part of the pipeline & app.
-  const envQuestion: QuestionCollection = [
-    {
-      name: 'environment',
-      type: 'list',
-      message:
-          'Which environment should be synchronized with your local environment variables?',
-      choices: ['Staging', 'Production'],
-    },
-  ]
 
-  const {environment} = await inquirer.prompt(envQuestion)
+  const environment = fullAppName.endsWith('-stg') ? 'Staging' : 'Production'
 
-  const fullAppName = `${repositoryName}-${
-      environment == 'Staging' ? 'stg' : 'prd'
-  }`
 
   let baseSSLUrl =
       environment == 'Staging'
           ? `${fullAppName}.herokuapp.com`
-          : `p-p.redbull.com/${repositoryName}`
+          : `p-p.redbull.com/${fullAppName.replace('-prod', '')}`
 
   const envVariables: {
     [name: string]: string
