@@ -11,24 +11,6 @@ const redBullRed = '#f30b47'
 const redBullChalk = chalk.hex(redBullRed)
 const linkChalk = chalk.hex('#29b8db')
 
-function getGitRepositoryName(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    exec('git config --get remote.origin.url', (err, stdout, stderr) => {
-      if (err) {
-        reject()
-      } else {
-        const splittedUrl = stdout.split('/')
-
-        resolve(
-            splittedUrl[splittedUrl.length - 1]
-                .replace('.git', '')
-                .replace('\n', '')
-        )
-      }
-    })
-  })
-}
-
 function isHerokuCLIInstalled(): Promise<boolean> {
   return new Promise((fulfill, reject) => {
     exec('heroku', (err, stdout, stderr) => {
@@ -94,9 +76,6 @@ async function init() {
   const loadingSpinner = ora({
     text: chalk.white.bold('Hold on. We are verifying your setup right now.'),
   }).start()
-
-  // repository name == heroku pipeline name [-stg, -prod]
-  //const repositoryName = await getGitRepositoryName()
 
   if (!(await isHerokuCLIInstalled())) {
     loadingSpinner.fail()
