@@ -32,5 +32,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - name: Use .npmrc 
+        uses: bduff9/use-npmrc@v1.1
+        with:
+          dot-npmrc: ${{ secrets.NPMRC_AUTH }}
       - run: npm ci
       - run: npm test
