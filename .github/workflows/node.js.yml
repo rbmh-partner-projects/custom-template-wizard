@@ -14,8 +14,7 @@ env:
   REDBULL_ACCOUNT_TOKEN_PRODUCTION: ${{ secrets.REDBULL_ACCOUNT_TOKEN_PRODUCTION }}
   CREPO_API_KEY_STAGING: ${{ secrets.CREPO_API_KEY_STAGING }}
   CREPO_API_KEY_PRODUCTION: ${{ secrets.CREPO_API_KEY_PRODUCTION }}
-  COSMOS_AUTH_TOKENS: ${{ secrets.COSMOS_AUTH_TOKENS }}
-  CREPO_PASSWORD: ${{ secrets.CREPO_PASSWORD }}
+  NPMRC_AUTH: ${{ secrets.NPMRC_AUTH }}
 
 jobs:
   build:
@@ -33,5 +32,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - name: Use .npmrc 
+        uses: bduff9/use-npmrc@v1.1
+        with:
+          dot-npmrc: ${{ secrets.NPMRC_AUTH }}
+      - name: Package
+        run: |
+          npm install @cosmos/foundation@1.33.1 @crepo/crepo-graphql-api-node-sdk-cjs@1.6.4 @crepo/crepo-graphql-api-node-sdk-esm@1.6.4
       - run: npm ci
       - run: npm test

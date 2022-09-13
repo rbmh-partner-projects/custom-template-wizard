@@ -107,19 +107,9 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4",
     "vue": "^3.2.37",
-    "vue-template-compiler": "^2.7.7"
-  },
-  "devDependencies": {
-    "@cosmos/foundation": "^1.33.1",
-    "@crepo/crepo-graphql-api-node-sdk-cjs": "^1.6.4",
-    "@crepo/crepo-graphql-api-node-sdk-esm": "^1.6.4",
-    "@rollup/plugin-image": "^2.1.1",
-    "@rollup/pluginutils": "4.2.1",
-    "copyfiles": "^2.4.1",
-    "hasha": "^5.2.2",
+    "vue-template-compiler": "^2.7.7",
     "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.0",
-    "rollup-plugin-img": "^1.1.0"
+    "prettier-plugin-svelte": "^2.7.0"
   },
   "babel": {
     "presets": [
