@@ -36,5 +36,8 @@ jobs:
         uses: bduff9/use-npmrc@v1.1
         with:
           dot-npmrc: ${{ secrets.NPMRC_AUTH }}
+      - name: Package
+        run: |
+          npm install @cosmos/foundation@1.33.1 @crepo/crepo-graphql-api-node-sdk-cjs@1.6.4 @crepo/crepo-graphql-api-node-sdk-esm@1.6.4
       - run: npm ci
       - run: npm test
