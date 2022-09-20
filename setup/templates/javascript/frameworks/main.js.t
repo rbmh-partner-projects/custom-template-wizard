@@ -1,4 +1,4 @@
-{{ if (it.framework === 0 || it.framework === 1 || it.framework === 3)  { }}
+{{ if (it.framework === 0 || it.framework === 1 || it.framework === 2 || it.framework === 3)  { }}
 import './styles/main.less';
 {{ } }}
 
