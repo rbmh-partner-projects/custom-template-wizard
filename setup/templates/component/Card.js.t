@@ -5,20 +5,46 @@ const panel = document.createElement("div");
 panel.classList.add("rb-example__panel");
 
 const img = {
-    src: exampleImg,
-    alt: "example-img",
-    class: "example-img",
-  };
-  const exampleImage = `<img src=${img.src} class=${img.class} alt=${img.alt}>`;
-
+  src: exampleImg,
+  alt: "example-img",
+  class: "example-img",
+};
+const exampleImage = `<img src=${img.src} class=${img.class} alt=${img.alt}>`;
 
 const card = document.createElement("div");
 card.innerHTML =
   exampleImage +
   "<h3>Example Card component</h3><p>Developing on the Red Bull Platform with Vanilla JavaScript is fun!!!</p>";
 
+const liHeader = `<li class="li-header"> `;
+const innerUl = `<ul class="inner-ul"> `;
+
+const platformsLink = `<a href="https://platforms.redbull.com/develop/custom-development" target="_blank">Documentation</a>`
+const jotformLink = `<a href="https://platformservices.redbull.com/docs/jotform" target="_blank">Documentation</a>`
+const crepoLink = `<a href="https://api.developers.redbull.com/docs/graphql-api-node-sdk" target="_blank">GraphQL API Node SDK</a>`;
+const rollupLink = `<a href="https://rollupjs.org/guide/en/" target="_blank">Documentation</a>`;
+const rollupCheatsheetLink = `<a href="https://devhints.io/rollup" target="_blank">Cheatsheet </a>`;
+const herokuLink = `<a href="https://devcenter.heroku.com/categories/reference" target="_blank">Documentation</a>`;
+const XCLink = `<a href="https://experience.redbull.com/" target="_target">Experience Center </a>`;
+const renderLink = `<a href="https://render.com/docs" target="_target">Documentation</a>`;
+const cosmosLink = `<a href="https://cosmos.redbull.design/9c8c28406/p/43ac2a-introduction" target="_blank">Documentation </a>`
+
+const infobox = document.createElement("div");
+infobox.innerHTML = 
+  "<h2>Before you start some helpful Links</h2>" + "<ul>" 
+  + liHeader + "Red Bull Custom Development</li>" + innerUl + "<li>" + platformsLink + "</li>" + "</ul>"
+  + liHeader + "Jotform</li>" + innerUl + "<li>" + jotformLink + "</li>" + "</ul>"
+  + liHeader + "CREPO API</li>" + innerUl + "<li>" + crepoLink + "</li>" + "</ul>"
+  + liHeader + "Rollup.js Bundler</li>" + innerUl + "<li>" + rollupLink + "</li>" + "<li>" + rollupCheatsheetLink + "for multiple outputs</li>" + "</ul>"
+  + liHeader + "Heroku</li>" + innerUl + "<li>" + herokuLink + "</li>" + "<li>" + XCLink + "to connect your Heroku App to</li>" + "</ul>"
+  + liHeader + "Render</li>" + innerUl + "<li>" + renderLink + "</li>" + "</ul>"
+  + liHeader + "Cosmos Web Components</li>" + innerUl + "<li>" + cosmosLink + "– Currently only for Preact & Vue</li>" + "</ul>"
+  + "</ul>"
+
 card.classList.add("rb-example__card");
+infobox.classList.add("rb-example__infobox");
 panel.appendChild(card);
+panel.appendChild(infobox);
 
 export default panel;
 {{ } }}
