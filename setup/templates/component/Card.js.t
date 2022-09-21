@@ -243,28 +243,71 @@ export default Card;
 {{ } }}
 
 {{ if (it.framework === 3)  { }}
+<script>
+  import { defineComponent } from 'vue';
+  import { CosmosStoryCard } from '@cosmos/web-scoped/vue';
+  import '../styles/cosmos.less';
+  import image from '../assets/story-card-image.jpeg';
 
-<template> 
-  <div class="rb-example__panel">
-    <div class="rb-example__card">
-      <img :src="exampleImg" class="example-img" alt="example-img"/>
-      <h3>Example Card component</h3>
-      <p>Developing on the Red Bull Platform with Vue is awesome!</p>
+  export default defineComponent({
+    components: { CosmosStoryCard },
+    data: function () {
+    return {
+      image,
+    };
+  },
+  });
+</script>
+
+<template>
+  <div className='my-panel'>
+    <CosmosStoryCard
+      className='my-panel__card'
+      :image="image"
+      imageAlt='A rally car that is throwing up dust'
+      headline='Rally Kazakhstan was your reminder that nothing can stop Cristina Gutiérrez'
+      text="It's back-to-back FIA World Cup for Cross Country Rallies wins for Spain's T3 queen Cristina"
+      href='https://www.redbull.com/int-en/rally-kazakhstan-recap-2021-fia-world-cup-for-cross-country-rallies'
+      tag='Rally Raid'
+      badge='Popular'
+      reading-time='3 min read'
+    ></CosmosStoryCard>
+    <div className="my-panel__infobox">
+        <h2>Before you start some helpful Links</h2>
+        <ul>
+          <li className="li-header">Red Bull Custom Development</li>
+            <ul className="inner-ul">
+              <li><a href="https://platforms.redbull.com/develop/custom-development" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+            </ul>
+          <li className="li-header">Jotform</li>
+            <ul className="inner-ul">
+              <li><a href="https://platformservices.redbull.com/docs/jotform" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+            </ul>
+          <li className="li-header">CREPO API</li>
+            <ul className="inner-ul">
+              <li><a href="https://api.developers.redbull.com/docs/graphql-api-node-sdk" target="_blank" rel="noopener noreferrer">GraphQL API Node SDK</a></li>
+            </ul>
+          <li className="li-header">Rollup.js Bundler</li>
+            <ul className="inner-ul">
+              <li><a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+              <li><a href="https://devhints.io/rollup" target="_blank" rel="noopener noreferrer">Cheatseet</a> for multiple outputs</li>
+            </ul>
+          <li className="li-header">Heroku</li>
+            <ul className="inner-ul">
+              <li><a href="https://devcenter.heroku.com/categories/reference" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+              <li><a href="https://experience.redbull.com/" target="_blank" rel="noopener noreferrer">Experience Center</a> to connect your Heroku App to</li>
+            </ul>
+          <li className="li-header">Render</li>
+            <ul className="inner-ul">
+              <li><a href="https://render.com/docs" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+            </ul>
+          <li className="li-header">Cosmos Web Components</li>
+            <ul className="inner-ul">
+              <li><a href="https://cosmos.redbull.design/9c8c28406/p/43ac2a-introduction" target="_blank" rel="noopener noreferrer">Documentation</a> – Currently only for Preact & Vue</li>
+            </ul>
+        </ul>
     </div>
   </div>
 </template>
-
-<script>
-import exampleImg from '../assets/example.svg';
-
-export default {
-  
-  data: function () {
-    return {
-      exampleImg 
-    }  
-  }
-};
-</script>
 
 {{ } }}
