@@ -1,10 +1,13 @@
+{{ if (it.framework === 0 || it.framework === 2 || it.framework === 3)  { }}
 import './styles/main.less';
+{{ } }}
 {{ if (it.framework === 0)  { }}
 import panel from './components/Card'
 {{ } }}
 {{ if (it.framework === 1)  { }}
 import { render } from 'preact';
-import Card from './components/Card';
+import './styles/cosmos.less';
+import Card from './components/Card.jsx';
 {{ } }}
 {{ if (it.framework === 2)  { }}
 import Card from './components/Card.svelte';
