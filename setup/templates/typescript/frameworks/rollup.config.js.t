@@ -8,6 +8,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import dotenv from 'dotenv';
+import license from "rollup-plugin-license";
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
@@ -37,6 +38,8 @@ const mimeMap = {
   '.svg': 'image/svg+xml',
   '.webp': 'image/webp'
 };
+
+const allowedLicenses = ['Apache-2.0', 'MIT', 'GPL-2.0+', 'BSD-2-Clause', 'BSD-3-Clause', 'MPL-2.0', 'LGPL-2.1+', '0BSD+', 'ISC+']
 
 function img(opt = {}) {
   const extensions = opt.extensions || /\.(png|jpg|jpeg|gif|svg|webp)$/;
@@ -134,5 +137,35 @@ export default {
       exclude: 'node_modules/**',
       baseUrl: `${process.env.BASE_SSL_URL ?? "localhost:3000"}`,
     }),
+    license({
+      sourcemap: true,
+      banner: {
+        commentStyle: 'slash',
+        content: `Bundle of <%= pkg.name %>
+                  Created at <%= moment().toString() %>
+                  Version: <%= pkg.version %>`
+      },
+      thirdParty: {
+        allow(dependency) {
+          const license = dependency.license;
+          return dependency.name === '@cosmos/web-scoped' || allowedLicenses.includes(license);
+        },
+        includePrivate: true,
+        output: {
+          file: path.join(__dirname, '..', '..', 'LICENSE-CHECK.md'),
+          encoding: 'utf-8',
+          // Lodash template that can be defined to customize report output
+          template: 
+            `
+            # Dependencies License Check
+            <%_.forEach(dependencies, function (dependency){%>
+- ***<%=dependency.name%>***: 
+Version: <%=dependency.version%>, 
+License: <ins><%=dependency.license%></ins>
+            <%})%>
+            `,
+        },
+      }
+    })
   ],
 }
