@@ -2,13 +2,14 @@
 import './styles/main.less';
 {{ } }}
 
-{{ if (it.framework === 0 || it.framework === 1)  { }}
+{{ if (it.framework === 0)  { }}
 import panel from './components/Card';
 {{ } }}
 
 {{ if (it.framework === 1)  { }}
 import { render } from 'preact';
 import './styles/cosmos.less';
+import Card from './components/Card';
 {{ } }}
 
 {{ if (it.framework === 2)  { }}
