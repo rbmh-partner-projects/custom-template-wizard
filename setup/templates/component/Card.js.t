@@ -114,7 +114,7 @@ import { h, render, Component } from "preact";
 import { CosmosStoryCard } from "@cosmos/web-scoped/preact";
 import image from "../assets/story-card-image.jpeg";
 
-const Card = ({ children }) => {
+const Card = () => {
   return (
     <div className='my-panel'>
       <CosmosStoryCard
