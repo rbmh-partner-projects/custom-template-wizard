@@ -1,0 +1,66 @@
+// Import font-face declarations for Latin, Cyrillic and Greek characters
+@import (less)
+  '~@cosmos/foundation/lib/primitives/font/default.css';
+
+@import (less)
+  '~@cosmos/foundation/lib/primitives';
+
+.my-panel {
+  padding: @cosmos-spacing-xxx-loose;
+  background: @cosmos-color-surface-solid-light-darker;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 80vh;
+  gap: 20px;
+
+  &__card {
+    width: 100%;  
+    max-width: 350px;
+  }
+
+  &__infobox {
+    background: #fff;
+    line-height: 1.2em;
+    height: 500px;
+    box-shadow: var(--cosmos-story-card-box-shadow, 0px 8px 12px 0px #000F1E0a, 0px 2px 4px 0px #000F1E05);
+    border-radius: var(--cosmos-story-card-border-radius, var(--cosmos-card-border-radius, 8px));
+    padding: var(--cosmos-story-card-padding, 16px 24px 24px);
+
+    h2 {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      font-weight: var(--cosmos-text-font-weight, 700);
+    }
+    ul {
+      list-style: inside !important;
+      line-height: 1.3em !important;
+      .li-header {
+        font-weight: var(--cosmos-text-font-weight, 500);
+      }
+      .inner-ul {
+        margin: 2px 0 5px 20px;
+        list-style: revert !important;
+      }
+      a {
+        color: mediumblue
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+@media screen and (max-width: 997px) {
+  .my-panel {
+    gap: 40px;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    
+    &__infobox {
+      width: 350px;
+      height: 100%;
+    }
+  }
+}
