@@ -57,6 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# Jetbrains
+.idea
+
 # next.js build output
 .next
 src
