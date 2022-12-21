@@ -1032,7 +1032,7 @@ describe('Typescript', async function () {
 			})
 		}
 
-		it.only('should return the bundle.js - [user data, crepo]', async function () {
+		it('should return the bundle.js - [user data, crepo]', async function () {
 			await init(true, true)
 
 			const app: any = await importFresh()
