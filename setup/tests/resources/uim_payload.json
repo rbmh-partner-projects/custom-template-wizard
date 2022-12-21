@@ -1,1 +1,91 @@
-{"userId":"61a8a9d0da19f418213fd054","siloUserId":"61a8a9d0da19f418213fd055","applicationId":"59eda40ff49bf53cbdb0d960","applicationName":"Red Bull","createdAt":"2022-01-20T14:00:03.488Z","type":"REGISTRATION_VERIFIED","info":{"country":"AT","socialMediaAccounts":[],"accepted_newsletters":[],"formSubmissionId":"61e96ae3991b7524abae3b7d","origin":"native","verifiedAt":"2022-01-20T14:00:03.462085Z","language":"en","source":"DEMO_PAGE_TEST","externalFormSubmissionId":"5184964035893104338","unmappedFields":{},"rawRequest":"{\"slug\":\"submit/220183940062953/\",\"q4_name\":{\"first\":\"Andre\",\"last\":\"Karner\"},\"q3_email\":\"andre.karner@redbull.com\",\"q5_typeA\":\"{\\\"widgetName\\\":\\\"consent\\\",\\\"policyTypes\\\":[\\\"privacy\\\"],\\\"customPolicies\\\":[{\\\"type\\\":\\\"participation\\\",\\\"url\\\":\\\"https://example.com/your-participation-policy.pdf\\\"}],\\\"newsletters\\\":[],\\\"snippets\\\":[\\\"52e7ca85-9c9a-4da6-b0f8-0b4b4d4b3df3\\\",\\\"085736fe-17b5-43c0-8068-72e8e191e2cc\\\"],\\\"country\\\":\\\"AT\\\",\\\"lang\\\":\\\"en\\\",\\\"formAlias\\\":\\\"rba_jotform_demo_page_for_andre_karner\\\",\\\"source\\\":\\\"DEMO_PAGE_TEST\\\",\\\"lucidId\\\":\\\"L000-1\\\"}\",\"event_id\":\"1642687194709_220183940062953_pzQxDZ8\",\"enterprise_server\":\"redbull.jotform.com\"}","externalFormId":"220183940062953","externalSystemId":"jotform","verificationPending":false,"userType":"registered","fields":[{"key":"first_name","value":"Andre","mandatory":true,"type":"TEXT"},{"key":"last_name","value":"Karner","mandatory":true,"type":"TEXT"},{"key":"email","value":"andre.karner@redbull.com","mandatory":true,"type":"TEXT","verified":true}],"lucidId":"L000-1","submittedAt":"2022-01-20T14:00:03.462085Z","formAlias":"rba_jotform_demo_page_for_andre_karner","userConsents":[{"masterDocumentId":"b1478104-6594-41ef-906b-abba99d20ab2","documentId":"b2bd2f5b-4885-433d-a487-a22cb6eef6b3","title":"Privacy Policy - Automation - International","mandatory":true,"accepted":true,"type":"privacy","version":"10","timeOfConsent":"2022-01-20T14:00:03.477Z","url":"https://policies-design.redbull.com/policies/Red_Bull_Global/202109220832/de/privacy.html","custom":false,"renderingType":"IMPLICIT","policyText":{"documentId":"085736fe-17b5-43c0-8068-72e8e191e2cc","version":"2","url":"https://policies-design.redbull.com/policies/Red_Bull_Global/202109220832/en/snippet-privacy-implicit.html","text":"For information on what personal data we collect about you and how we use your personal data (e.g. by providing tailored content to you), please see our <a class=\"uim-policy-link\" href=\"__arg0__\" target=\"_blank\">Privacy Policy</a>.."}},{"masterDocumentId":"14d6ea36-235d-453c-ae35-3b57263d33d5","documentId":"custom_e14f6bea-509d-4416-bd08-d8f77c3fd46a","title":"custom_participation","mandatory":false,"accepted":true,"type":"participation","version":"custom_policy_version_1","timeOfConsent":"2022-01-20T14:00:03.513980Z","url":"https://example.com/your-participation-policy.pdf","custom":true,"renderingType":"EXPLICIT"}]},"geoLocation":{"country":"DE","city":"FRANKFURT","latitude":"50.12","longitude":"8.68"},"advertising":{}}
+{
+  "userId": "63232d2b9874a1648c9c0d6e",
+  "siloUserId": "63232d2b9874a1648c9c0d6f",
+  "applicationId": "59eda40ff49bf53cbdb0d960",
+  "applicationName": "Red Bull",
+  "createdAt": "2022-12-21T10:12:22.453Z",
+  "type": "REGISTRATION_VERIFIED",
+  "info": {
+    "country": "AT",
+    "socialMediaAccounts": [],
+    "accepted_newsletters": [],
+    "formSubmissionId": "63a2dc06deee786d39bd3146",
+    "origin": "native",
+    "verifiedAt": "2022-12-21T10:12:22.406653Z",
+    "language": "en",
+    "source": "DEMO_PAGE_TEST",
+    "externalFormSubmissionId": "5474267419817705108",
+    "organizationType": "BEVERAGE",
+    "unmappedFields": {},
+    "rawRequest": "{\"slug\":\"submit/220183940062953/\",\"q4_name\":{\"first\":\"Andre\",\"last\":\"Karner\"},\"q3_email\":\"andre.karner@gmail.com\",\"q5_typeA\":\"{\\\"widgetName\\\":\\\"consent\\\",\\\"policyTypes\\\":[\\\"privacy\\\"],\\\"customPolicies\\\":[{\\\"type\\\":\\\"participation\\\",\\\"url\\\":\\\"https://example.com/your-participation-policy.pdf\\\"}],\\\"newsletters\\\":[],\\\"snippets\\\":[\\\"46ec1cbd-0852-456e-85d9-908ab14a96c0\\\",\\\"fa615b91-3ede-4c23-80b8-a72f166b6455\\\"],\\\"country\\\":\\\"AT\\\",\\\"lang\\\":\\\"en\\\",\\\"formAlias\\\":\\\"rba_jotform_demo_page_for_andre_karner\\\",\\\"source\\\":\\\"DEMO_PAGE_TEST\\\",\\\"lucidId\\\":\\\"L000-1\\\"}\",\"event_id\":\"1671617539297_220183940062953_GgmEeBf\",\"enterprise_server\":\"redbull.jotform.com\",\"validatedRequiredFieldIDs\":\"{\\\"input_5\\\":true,\\\"id_3\\\":true}\",\"path\":\"/submit/220183940062953\"}",
+    "externalFormId": "220183940062953",
+    "externalSystemId": "jotform",
+    "verificationPending": false,
+    "userType": "registered",
+    "fields": [
+      {
+        "key": "first_name",
+        "value": "Andre",
+        "mandatory": true,
+        "type": "TEXT"
+      },
+      {
+        "key": "last_name",
+        "value": "Karner",
+        "mandatory": true,
+        "type": "TEXT"
+      },
+      {
+        "key": "email",
+        "value": "andre.karner@gmail.com",
+        "mandatory": true,
+        "type": "TEXT",
+        "verified": true
+      }
+    ],
+    "lucidId": "L000-1",
+    "submittedAt": "2022-12-21T10:12:22.406653Z",
+    "formAlias": "rba_jotform_demo_page_for_andre_karner",
+    "userConsents": [
+      {
+        "masterDocumentId": "fc720928-5fdb-4039-b95f-3e108c1813bb",
+        "documentId": "custom_4f32aeac-9a3d-443f-9e1d-2c32bea15d65",
+        "title": "custom_participation",
+        "mandatory": false,
+        "accepted": true,
+        "type": "participation",
+        "version": "custom_policy_version_1",
+        "timeOfConsent": "2022-12-21T10:12:22.501068Z",
+        "url": "https://example.com/your-participation-policy.pdf",
+        "custom": true,
+        "renderingType": "EXPLICIT"
+      },
+      {
+        "masterDocumentId": "a0ed29da-09ac-40d3-b31d-593ec452713d",
+        "documentId": "43f487a9-e7ec-4266-a3e5-36bff6318758",
+        "title": "Privacy Policy - Automation - Single Local & International",
+        "mandatory": true,
+        "accepted": true,
+        "type": "privacy",
+        "version": "14",
+        "timeOfConsent": "2022-12-21T10:12:22.431Z",
+        "url": "https://policies-design.redbull.com/policies/Red_Bull_Global/202207150822/en/privacy.html",
+        "custom": false,
+        "renderingType": "IMPLICIT",
+        "policyText": {
+          "documentId": "fa615b91-3ede-4c23-80b8-a72f166b6455",
+          "version": "2",
+          "url": "https://policies-design.redbull.com/policies/Red_Bull_Global/202211221034/en_AT/snippet-privacy-implicit.html",
+          "text": "For information on what personal data we collect about you and how we use your personal data (e.g. by providing tailored content to you), please see our <a class=\"uim-policy-link\" href=\"__arg0__\" target=\"_blank\">Privacy Policy</a>."
+        }
+      }
+    ]
+  },
+  "geoLocation": {
+    "country": "DE",
+    "city": "FRANKFURT",
+    "latitude": "50.12",
+    "longitude": "8.68"
+  },
+  "advertising": {}
+}
