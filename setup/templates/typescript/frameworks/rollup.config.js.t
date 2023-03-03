@@ -102,6 +102,7 @@ export default {
       exclude: ['**/.wizard/**'],
       outDir: './build',
       sourceMap: false,
+      declaration: false,
     }),
     {{ if (it.framework === 2)  { }}
     svelte({
