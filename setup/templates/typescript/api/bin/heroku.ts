@@ -143,7 +143,7 @@ async function init() {
           : `p-p.redbull.com/${fullAppName.replace('-prod', '')}`
 
   const envVariables: {
-    [name: string]: string
+    [name: string]: string | undefined
   } = {
     REDBULL_ACCOUNT_TOKEN_PRODUCTION:
     process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION,
