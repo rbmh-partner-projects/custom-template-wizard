@@ -1,37 +1,41 @@
-import 'pretty-print-json/pretty-print-json.css'
+import "pretty-print-json/pretty-print-json.css";
 
-import { prettyPrintJson } from 'pretty-print-json'
+import { prettyPrintJson } from "pretty-print-json";
+import type { CustomScriptRBAccountUser } from "../types";
 
 const jotForm = {
-  getJotFormIFrameSrc: function (user) {
+  getJotFormIFrameSrc: function (user: CustomScriptRBAccountUser | null) {
+    if (!user) {
+      return `https://redbull.jotform.com/${process.env.JOTFORM_ID}`;
+    }
     return (
       `https://redbull.jotform.com/${process.env.JOTFORM_ID}?email=` +
       user.userProfile.email +
-      '&name[first]=' +
+      "&name[first]=" +
       user.userProfile.first_name +
-      '&name[last]=' +
+      "&name[last]=" +
       user.userProfile.last_name
-    )
+    );
   },
   getJotFormSubmissionData: async function (userSilodId: string) {
-    if (!userSilodId) return
+    if (!userSilodId) return;
 
     try {
-      const baseUrl = `https://${process.env.BASE_SSL_URL}`
-      const response = await fetch(`${baseUrl}/uim/submission/${userSilodId}`)
+      const baseUrl = `https://${process.env.BASE_SSL_URL}`;
+      const response = await fetch(`${baseUrl}/uim/submission/${userSilodId}`);
 
-      return await response.json()
+      return await response.json();
     } catch (err) {
-      console.error('Could not fetch submission data', err)
-      return 'No data found'
+      console.error("Could not fetch submission data", err);
+      return "No data found";
     }
   },
-  init: function (element, user) {
-    const iFrameSrc = this.getJotFormIFrameSrc(user)
-    const jotFormPanel = document.createElement('div')
-    jotFormPanel.classList.add('rb-example__panel')
+  init: function (element: Element, user: CustomScriptRBAccountUser | null) {
+    const iFrameSrc = this.getJotFormIFrameSrc(user);
+    const jotFormPanel = document.createElement("div");
+    jotFormPanel.classList.add("rb-example__panel");
 
-    const jotFormCard = document.createElement('div')
+    const jotFormCard = document.createElement("div");
     jotFormCard.innerHTML = `
       <h3>JotForm Example</h3>
       <div>
@@ -42,34 +46,34 @@ const jotForm = {
             <pre id="submissionData"></pre>
             </div>
       <iframe src="${iFrameSrc}" style="border: none !important; padding: 10px; background-color: #efefef; border-radius: 5px; min-height: 800px; width: 100%; margin-top: 10px;"></iframe>
-  `
-    jotFormCard.classList.add('rb-example__card')
-    jotFormCard.style.width = '100%'
-    jotFormCard.style.minHeight = '800px'
-    jotFormPanel.appendChild(jotFormCard)
-    element.appendChild(jotFormPanel)
+  `;
+    jotFormCard.classList.add("rb-example__card");
+    jotFormCard.style.width = "100%";
+    jotFormCard.style.minHeight = "800px";
+    jotFormPanel.appendChild(jotFormCard);
+    element.appendChild(jotFormPanel);
 
-    jotFormCard.addEventListener('click', async (ev) => {
-      const target = ev.target as HTMLElement
-      if (!target) return
+    jotFormCard.addEventListener("click", async (ev) => {
+      const target = ev.target as HTMLElement;
+      if (!target) return;
 
-      if (target.id === 'fetchJotFormSubmission') {
+      if (target.id === "fetchJotFormSubmission") {
         const submissionData = await this.getJotFormSubmissionData(
-          user.userProfile.id
-        )
+          user!.userProfile.id
+        );
 
         const html = prettyPrintJson.toHtml(submissionData, {
           quoteKeys: true,
-        })
+        });
 
         const submissionDataContainer =
-          document.getElementById('submissionData')
+          document.getElementById("submissionData");
 
-        submissionDataContainer.innerHTML = html
-        submissionDataContainer.style.display = 'block'
+        submissionDataContainer!.innerHTML = html;
+        submissionDataContainer!.style.display = "block";
       }
-    })
+    });
   },
-}
+};
 
-export default jotForm
+export default jotForm;
