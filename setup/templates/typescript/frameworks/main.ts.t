@@ -25,6 +25,12 @@ import App from './App.vue';
 import jotform from './utils/jotform.js';
 {{ } }}
 
+import {
+  CustomScriptParams,
+  CustomScript,
+  CustomScriptRBAccountUser,
+} from "./types";
+
 export const { start, attach }: CustomScript = {
   /*
    * The start function is called when the custom script panel is rendered 
@@ -34,7 +40,7 @@ export const { start, attach }: CustomScript = {
    * the start method is asynchronous and any work done here delays the processing of subsequent panels. 
    * This minimizes layout shifts.
   */
-  start: async (params) => {
+  start: async (params: CustomScriptParams) => {
     /*
      * el:         contains the element the custom script can use to attach itself to
      * config:     contains everything from the scriptConfig in the XC
@@ -83,9 +89,9 @@ export const { start, attach }: CustomScript = {
       })
 
       sdk.onEvent('signedIn', async () => {
-        const _user = await sdk.getUser()
+        const _user = await sdk.getUser();
 
-        jotform.init(el, _user)
+        jotform.init(el, _user);
         // Do something after a user has logged in
       })
     }
