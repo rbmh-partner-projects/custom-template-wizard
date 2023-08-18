@@ -15,10 +15,10 @@ dotenv.config({ path: ".env.redbull" });
 
 const platformshConfig = configModule.config();
 
-const getConfigValue = (key, defaultValue = null) => {
+const getConfigValue = (key, defaultValue) => {
   return platformshConfig.inValidPlatform(key)
     ? platformshConfig[key]
-    : process.env[key] || defaultValue;
+    : process.env[key] || defaultValue || null;
 };
 
 const redBullRed = "#f30b47";

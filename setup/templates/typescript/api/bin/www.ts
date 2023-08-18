@@ -13,10 +13,10 @@ import configModule from "platformsh-config";
 
 const platformshConfig = configModule.config();
 
-const getConfigValue = (key, defaultValue = null) => {
+const getConfigValue = (key, defaultValue) => {
   return platformshConfig.inValidPlatform(key)
     ? platformshConfig[key]
-    : process.env[key] || defaultValue;
+    : process.env[key] || defaultValue || null;
 };
 dotenv.config({ path: '.env.redbull' })
 
@@ -44,7 +44,8 @@ const init = async () => {
    */
 
   var port = normalizePort(
-    getConfigValue("PORT_PRODUCTION", getConfigValue("PORT_STAGING", "3000"));
+    getConfigValue("PORT_PRODUCTION", getConfigValue("PORT_STAGING", "3000"))
+  );
 
   app.default.set("port", port);
 
