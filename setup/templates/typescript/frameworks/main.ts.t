@@ -35,7 +35,7 @@ import configModule from "platformsh-config";
 const platformshConfig = configModule.config();
 
 const getConfigValue = (key, defaultValue = null) => {
-  return platformshConfig.isValidPlatform(key)
+  return platformshConfig.isValidPlatform()
     ? platformshConfig[key]
     : process.env[key] || defaultValue;
 };
