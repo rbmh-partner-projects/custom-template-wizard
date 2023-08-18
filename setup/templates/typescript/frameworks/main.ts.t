@@ -31,6 +31,15 @@ import {
   CustomScriptRBAccountUser,
 } from "./types";
 
+import configModule from "platformsh-config";
+const platformshConfig = configModule.config();
+
+const getConfigValue = (key, defaultValue = null) => {
+  return platformshConfig.inValidPlatform(key)
+    ? platformshConfig[key]
+    : process.env[key] || defaultValue;
+};
+
 export const { start, attach }: CustomScript = {
   /*
    * The start function is called when the custom script panel is rendered 
@@ -71,7 +80,7 @@ export const { start, attach }: CustomScript = {
      * The following method shows an example of how to use the RBAccount SDK
      * Read more here: https://rb-account-sdk-prod.herokuapp.com/
      */
-    const appToken = process.env.REDBULL_ACCOUNT_TOKEN
+    const appToken = getConfigValue('REDBULL_ACCOUNT_TOKEN')
 
     if (appToken) {
 

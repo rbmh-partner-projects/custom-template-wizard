@@ -10,6 +10,13 @@ import dotenv from 'dotenv';
 import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
+import configModule from 'platformsh-config';
+
+const platformshConfig = configModule.config();
+
+const getConfigValue = (key, defaultValue = null) => {
+  return platformshConfig.inBuild(key) ? platformshConfig[key] : process.env[key] || defaultValue;
+};
 
 {{ if (it.framework === 2)  { }}
 import svelte from 'rollup-plugin-svelte';
@@ -19,7 +26,7 @@ import vue from 'rollup-plugin-vue';
 {{ } }}
 dotenv.config({ path: '.env.redbull' })
 
-const ENVIRONMENT = process.env.NODE_ENV || 'development';
+const ENVIRONMENT = getConfigValue('NODE_ENV', 'development');
 const PRODUCTION = ENVIRONMENT === 'production';
 {{ if (it.framework === 0 || it.framework === 2 || it.framework === 3)  { }}
 const inputFileFullPath = path.join('.', 'src', 'custom-script', 'main.js')
@@ -90,10 +97,10 @@ export default {
   },
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify(PRODUCTION ? 'production' : 'development'),
-      'process.env.REDBULL_ACCOUNT_TOKEN': PRODUCTION ? JSON.stringify(process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION ?? null) : JSON.stringify(process.env.REDBULL_ACCOUNT_TOKEN_STAGING ?? null),
-      'process.env.JOTFORM_ID': PRODUCTION ? JSON.stringify(process.env.JOTFORM_ID ?? null) : JSON.stringify(process.env.JOTFORM_ID ?? null),
-      'process.env.BASE_SSL_URL': JSON.stringify(process.env.BASE_SSL_URL ?? 'localhost:3000'),
+      'process.env.NODE_ENV': JSON.stringify(ENVIRONMENT),
+      'process.env.REDBULL_ACCOUNT_TOKEN': JSON.stringify(getConfigValue('REDBULL_ACCOUNT_TOKEN_PRODUCTION', getConfigValue('REDBULL_ACCOUNT_TOKEN_STAGING'))),
+      'process.env.JOTFORM_ID': JSON.stringify(getConfigValue('JOTFORM_ID')),
+      'process.env.BASE_SSL_URL': JSON.stringify(getConfigValue('BASE_SSL_URL', 'localhost:3000')),
       preventAssignment: false
     }),
     styles(),
@@ -126,7 +133,7 @@ export default {
       output: 'src/server/public/assets',
       _slash: true,
       exclude: 'node_modules/**',
-      baseUrl: `${process.env.BASE_SSL_URL ?? "localhost:3000"}`,
+      baseUrl: `${getConfigValue('BASE_SSL_URL', 'localhost:3000')}`,
     }),
   ],
 }
