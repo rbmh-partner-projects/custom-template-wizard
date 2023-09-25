@@ -39,6 +39,11 @@ declare type CustomScriptOptions = {
    */
   getRBAccount: () => Promise<CustomScriptRBAccountsSDK>;
   /**
+   * @function getRBAccountLoginMethod - returns the current Red Bull login method
+   * @returns {CustomScriptRBAccountsSDK} - returns the current login method
+   */
+  getRBAccountLoginMethod: () => "redirect" | "embedded";
+  /**
    * @function isServerSideRendering - checks if server side rendering is enabled
    * @returns {boolean}
    */
