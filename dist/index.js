@@ -108,11 +108,6 @@ function init(workingPath) {
                     return [4 /*yield*/, processConfig(cfg, crepoAnswers, workingPath)];
                 case 9:
                     _a.sent();
-                    if (cfg.collectsUserData &&
-                        (!consumerDataAnswers.rbAccountTokenProd ||
-                            !consumerDataAnswers.rbAccountTokenStg)) {
-                        console.log(chalk.yellow(chalk.bold('Warning') + ": You have decided not to import keys for the " + chalk.bold('Red Bull Account SDK') + ". However, the examples provided require these keys. If you do want to provide them, please restart the setup."));
-                    }
                     if (cfg.useCREPO &&
                         (!crepoAnswers.crepoAPIKeyStg || !crepoAnswers.crepoAPIKeyProd)) {
                         console.log(chalk.yellow(chalk.bold('Warning') + ": You decided not to import keys for the " + chalk.bold('CREPO SDK') + ". However, the examples provided require these keys. If you do want to provide them, please restart the setup."));
@@ -145,8 +140,6 @@ export function setEnv(consumerConfig, crepoConfig) {
             fileStream = fs.createWriteStream(filePath, {
                 flags: 'w'
             });
-            fileStream.write("REDBULL_ACCOUNT_TOKEN_STAGING=" + ((_a = consumerConfig.rbAccountTokenStg) !== null && _a !== void 0 ? _a : '') + "\n");
-            fileStream.write("REDBULL_ACCOUNT_TOKEN_PRODUCTION=" + ((_b = consumerConfig.rbAccountTokenProd) !== null && _b !== void 0 ? _b : '') + "\n");
             fileStream.write("JOTFORM_ID=" + ((_c = consumerConfig.jotFormId) !== null && _c !== void 0 ? _c : '') + "\n");
             fileStream.write("CREPO_API_KEY_STAGING=" + ((_d = crepoConfig.crepoAPIKeyStg) !== null && _d !== void 0 ? _d : '') + "\n");
             fileStream.write("CREPO_API_KEY_PRODUCTION=" + ((_e = crepoConfig.crepoAPIKeyProd) !== null && _e !== void 0 ? _e : '') + "\n");

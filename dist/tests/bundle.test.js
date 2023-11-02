@@ -93,12 +93,6 @@ describe('JavaScript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -112,8 +106,6 @@ describe('JavaScript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -350,12 +342,6 @@ describe('JavaScript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -369,8 +355,6 @@ describe('JavaScript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -607,12 +591,6 @@ describe('JavaScript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -626,8 +604,7 @@ describe('JavaScript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -864,12 +841,6 @@ describe('JavaScript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -883,8 +854,7 @@ describe('JavaScript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -1129,12 +1099,6 @@ describe('Typescript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -1148,8 +1112,7 @@ describe('Typescript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -1386,12 +1349,6 @@ describe('Typescript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -1405,8 +1362,7 @@ describe('Typescript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -1643,12 +1599,6 @@ describe('Typescript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -1662,8 +1612,7 @@ describe('Typescript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -1900,12 +1849,6 @@ describe('Typescript', function () {
                                 if (!(collectsUserData || useCREPO)) return [3 /*break*/, 2];
                                 return [4 /*yield*/, setEnv({
                                         collectsConsumerData: collectsUserData,
-                                        rbAccountTokenProd: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-                                            : null,
-                                        rbAccountTokenStg: collectsUserData
-                                            ? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-                                            : null,
                                         jotFormId: collectsUserData ? process.env.JOTFORM_ID : null
                                     }, {
                                         useCREPO: useCREPO,
@@ -1919,8 +1862,7 @@ describe('Typescript', function () {
                                 return [3 /*break*/, 4];
                             case 2: return [4 /*yield*/, setEnv({
                                     collectsConsumerData: collectsUserData,
-                                    rbAccountTokenProd: null,
-                                    rbAccountTokenStg: null,
+
                                     jotFormId: null
                                 }, {
                                     useCREPO: useCREPO,
@@ -2161,8 +2103,6 @@ afterEach(function () {
                     };
                     return [4 /*yield*/, setEnv({
                             collectsConsumerData: false,
-                            rbAccountTokenProd: null,
-                            rbAccountTokenStg: null,
                             jotFormId: null
                         }, {
                             useCREPO: false,

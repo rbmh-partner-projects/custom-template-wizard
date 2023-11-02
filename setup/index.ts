@@ -88,22 +88,6 @@ async function init(workingPath: string): Promise<void> {
 	await processConfig(cfg, crepoAnswers, workingPath)
 
 	if (
-		cfg.collectsUserData &&
-		(!consumerDataAnswers.rbAccountTokenProd ||
-			!consumerDataAnswers.rbAccountTokenStg)
-	) {
-		console.log(
-			chalk.yellow(
-				`${chalk.bold(
-					'Warning'
-				)}: You have decided not to import keys for the ${chalk.bold(
-					'Red Bull Account SDK'
-				)}. However, the examples provided require these keys. If you do want to provide them, please restart the setup.`
-			)
-		)
-	}
-
-	if (
 		cfg.useCREPO &&
 		(!crepoAnswers.crepoAPIKeyStg || !crepoAnswers.crepoAPIKeyProd)
 	) {
@@ -141,16 +125,6 @@ export async function setEnv(
 	const fileStream = fs.createWriteStream(filePath, {
 		flags: 'w',
 	})
-
-	fileStream.write(
-		`REDBULL_ACCOUNT_TOKEN_STAGING=${consumerConfig.rbAccountTokenStg ?? ''}\n`
-	)
-	fileStream.write(
-		`REDBULL_ACCOUNT_TOKEN_PRODUCTION=${
-			consumerConfig.rbAccountTokenProd ?? ''
-		}\n`
-	)
-
 	fileStream.write(`JOTFORM_ID=${consumerConfig.jotFormId ?? ''}\n`)
 
 	fileStream.write(

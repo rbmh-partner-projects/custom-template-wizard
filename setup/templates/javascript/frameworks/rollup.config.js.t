@@ -91,7 +91,6 @@ export default {
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify(PRODUCTION ? 'production' : 'development'),
-      'process.env.REDBULL_ACCOUNT_TOKEN': PRODUCTION ? JSON.stringify(process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION ?? null) : JSON.stringify(process.env.REDBULL_ACCOUNT_TOKEN_STAGING ?? null),
       'process.env.JOTFORM_ID': PRODUCTION ? JSON.stringify(process.env.JOTFORM_ID ?? null) : JSON.stringify(process.env.JOTFORM_ID ?? null),
       'process.env.BASE_SSL_URL': JSON.stringify(process.env.BASE_SSL_URL ?? 'localhost:3000'),
       preventAssignment: false

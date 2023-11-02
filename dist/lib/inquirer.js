@@ -122,22 +122,6 @@ var inq = {
                             "default": false
                         },
                         {
-                            name: 'rbAccountTokenStg',
-                            type: 'input',
-                            when: function (answers) {
-                                return answers.collectsUserData;
-                            },
-                            message: 'Please provide your application token for the staging environment:'
-                        },
-                        {
-                            name: 'rbAccountTokenProd',
-                            type: 'input',
-                            when: function (answers) {
-                                return answers.collectsUserData;
-                            },
-                            message: 'Please provide your application token for the production environment:'
-                        },
-                        {
                             name: 'jotFormId',
                             type: 'input',
                             when: function (answers) {
@@ -154,8 +138,6 @@ var inq = {
                     answers = _a.sent();
                     return [2 /*return*/, {
                             collectsConsumerData: answers.collectsUserData,
-                            rbAccountTokenProd: answers.rbAccountTokenProd,
-                            rbAccountTokenStg: answers.rbAccountTokenStg,
                             jotFormId: answers.jotFormId
                         }];
             }

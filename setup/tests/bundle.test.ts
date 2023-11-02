@@ -73,12 +73,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -93,8 +87,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -306,12 +298,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -326,8 +312,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -536,12 +520,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -556,8 +534,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -764,12 +740,7 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
+
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -784,8 +755,6 @@ describe('JavaScript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -994,12 +963,7 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
+
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -1014,8 +978,6 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -1222,12 +1184,7 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
+
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -1242,8 +1199,6 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -1450,12 +1405,7 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
+
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -1470,8 +1420,6 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -1678,12 +1626,7 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION
-							: null,
-						rbAccountTokenStg: collectsUserData
-							? process.env.REDBULL_ACCOUNT_TOKEN_STAGING
-							: null,
+
 						jotFormId: collectsUserData ? process.env.JOTFORM_ID : null,
 					},
 					{
@@ -1698,8 +1641,6 @@ describe('Typescript', async function () {
 				await setEnv(
 					{
 						collectsConsumerData: collectsUserData,
-						rbAccountTokenProd: null,
-						rbAccountTokenStg: null,
 						jotFormId: null,
 					},
 					{
@@ -1904,8 +1845,6 @@ afterEach(async function () {
 	await setEnv(
 		{
 			collectsConsumerData: false,
-			rbAccountTokenProd: null,
-			rbAccountTokenStg: null,
 			jotFormId: null,
 		},
 		{
