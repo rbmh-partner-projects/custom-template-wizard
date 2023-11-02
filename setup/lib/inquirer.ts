@@ -78,24 +78,6 @@ const inq = {
         default: false,
       },
       {
-        name: 'rbAccountTokenStg',
-        type: 'input',
-        when: (answers) => {
-          return answers.collectsUserData
-        },
-        message:
-          'Please provide your application token for the staging environment:',
-      },
-      {
-        name: 'rbAccountTokenProd',
-        type: 'input',
-        when: (answers) => {
-          return answers.collectsUserData
-        },
-        message:
-          'Please provide your application token for the production environment:',
-      },
-      {
         name: 'jotFormId',
         type: 'input',
         when: (answers) => {
@@ -112,8 +94,6 @@ const inq = {
 
     return {
       collectsConsumerData: answers.collectsUserData,
-      rbAccountTokenProd: answers.rbAccountTokenProd,
-      rbAccountTokenStg: answers.rbAccountTokenStg,
       jotFormId: answers.jotFormId,
     }
   },

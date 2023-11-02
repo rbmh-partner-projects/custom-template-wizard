@@ -71,30 +71,15 @@ export const { start, attach }: CustomScript = {
      * The following method shows an example of how to use the RBAccount SDK
      * Read more here: https://rb-account-sdk-prod.herokuapp.com/
      */
-    const appToken = process.env.REDBULL_ACCOUNT_TOKEN
 
-    if (appToken) {
 
-      const { RBAccounts: sdk, user } = await options.getRBAccount()
+    const { RBAccounts: sdk, user } = await options.getRBAccount()
 
-      sdk.setToken({ application: appToken })
-
-            // JotForm is initialized only when the user is logged in.
-      if(user) {
-        jotform.init(el, user);
-      }
-
-      sdk.onEvent('loggedOut', () => {
-        // Do something after a user has logged out
-      })
-
-      sdk.onEvent('signedIn', async () => {
-        const _user = await sdk.getUser();
-
-        jotform.init(el, _user);
-        // Do something after a user has logged in
-      })
+    // JotForm is initialized only when the user is logged in.
+    if(user) {
+      jotform.init(el, user);
     }
+ 
     {{ } }}
 
     return Promise.resolve({

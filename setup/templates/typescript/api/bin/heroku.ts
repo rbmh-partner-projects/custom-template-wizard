@@ -145,9 +145,6 @@ async function init() {
   const envVariables: {
     [name: string]: string | undefined;
   } = {
-    REDBULL_ACCOUNT_TOKEN_PRODUCTION:
-      process.env.REDBULL_ACCOUNT_TOKEN_PRODUCTION,
-    REDBULL_ACCOUNT_TOKEN_STAGING: process.env.REDBULL_ACCOUNT_TOKEN_STAGING,
     CREPO_API_KEY_PRODUCTION: process.env.CREPO_API_KEY_PRODUCTION,
     CREPO_API_KEY_STAGING: process.env.CREPO_API_KEY_STAGING,
     JOTFORM_ID: process.env.JOTFORM_ID,

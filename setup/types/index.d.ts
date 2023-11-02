@@ -16,8 +16,6 @@ declare type CustomScriptTemplatePath = {
 
 declare type ConsumerDataConfig = {
   collectsConsumerData: boolean
-  rbAccountTokenStg?: string
-  rbAccountTokenProd?: string
   jotFormId: string
 }
 
