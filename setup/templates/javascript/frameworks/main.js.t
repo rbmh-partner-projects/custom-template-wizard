@@ -60,7 +60,7 @@ export const { start, attach } = {
     {{ if (it.collectsUserData) { }}
     /*
      * The following method shows an example of how to use the RBAccount SDK
-     * Read more here: https://engineering.redbull.com/custom-development
+     * Read more here: https://engineering.redbull.com/custom-development/login-wrapper
      */
 
     const { RBAccounts: sdk, user } = await options.getRBAccount()
