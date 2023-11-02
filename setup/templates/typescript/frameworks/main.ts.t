@@ -69,9 +69,8 @@ export const { start, attach }: CustomScript = {
     {{ if (it.collectsUserData) { }}
     /*
      * The following method shows an example of how to use the RBAccount SDK
-     * Read more here: https://rb-account-sdk-prod.herokuapp.com/
+     * Read more here: https://engineering.redbull.com/custom-development
      */
-
 
     const { RBAccounts: sdk, user } = await options.getRBAccount()
 
@@ -79,7 +78,17 @@ export const { start, attach }: CustomScript = {
     if(user) {
       jotform.init(el, user);
     }
+
+    // example of how to use the RBAccount SDK
+    // the sdk can f.e. also be passed to the actual game or application to trigger some auth processes from different places
+    // if (!user) {
+    //   sdk.login();
+    // }
  
+    // If your app needs to persist any information before the login, make sure to save that information upfront, 
+    // so you can access it after the user got redirected back. f.e.:
+    // localStorage.setItem("info", "{clicked: true}");
+
     {{ } }}
 
     return Promise.resolve({
