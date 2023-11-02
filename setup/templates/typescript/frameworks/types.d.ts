@@ -78,30 +78,11 @@ declare type CustomScriptOptions = {
 
 declare type CustomScriptRBAccountsSDK = {
   RBAccounts: {
-    onEvent: (
-      eventName:
-        | "signedIn"
-        | "sessionChecked"
-        | "signInStarted"
-        | "signInCancelled"
-        | "loggedOut",
-      callback: () => void
-    ) => void;
-    removeEvent: (
-      eventName:
-        | "signedIn"
-        | "sessionChecked"
-        | "signInStarted"
-        | "signInCancelled"
-        | "loggedOut",
-      callback: () => void
-    ) => void;
     login: () => Promise<any>;
     logout: () => Promise<any>;
     getUser: () => CustomScriptRBAccountUser | null;
     profileHref: () => string;
     getJwt: () => Promise<string>;
-    setToken: (config: any) => void;
     linkSocialMediaAccount: (providerName: string) => Promise<void>;
     unlinkSocialMediaAccount: (providerName: string) => Promise<void>;
     checkSocialMediaAccount: (providerName: string) => Promise<boolean | null>;
