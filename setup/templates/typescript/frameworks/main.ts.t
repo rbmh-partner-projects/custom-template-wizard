@@ -69,7 +69,7 @@ export const { start, attach }: CustomScript = {
     {{ if (it.collectsUserData) { }}
     /*
      * The following method shows an example of how to use the RBAccount SDK
-     * Read more here: https://engineering.redbull.com/custom-development/login-wrapper
+     * Read more here: https://engineering.redbull.com/custom-development/auth0-wrapper-sdk-custom-template
      */
 
     const { RBAccounts: sdk, user } = await options.getRBAccount()
