@@ -56,7 +56,7 @@
     "@types/rimraf": "^3.0.2",
     "@vue/compiler-sfc": "^3.2.37",
     "add": "^2.0.6",
-    "axios": "^0.27.2",
+    "axios": "^1.6.7",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "chalk": "^5.0.1",
