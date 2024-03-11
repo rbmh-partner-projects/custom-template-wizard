@@ -2,7 +2,7 @@ declare type CustomScriptRBAccountsSDK = {
   RBAccounts: {
     login: () => Promise<any>;
     logout: () => Promise<any>;
-    getUser: () => CustomScriptRBAccountUser | null;
+    getCurrentUser: () => Promise<CustomScriptRBAccountUser | null>;
     profileHref: () => string;
     getJwt: () => Promise<string>;
     linkSocialMediaAccount: (providerName: string) => Promise<void>;
