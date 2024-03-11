@@ -53,6 +53,7 @@ router.post("/uim/notification", async function (req, res, next) {
 
     const signatureB64ToBinary = Buffer.from(signature, "base64");
 
+    // production jwks URL: https://uim.redbull.com/.well-known/jwks-registry/jwks-prod.json
     const jkws = await axios.get<{
       keys: any[];
     }>(
