@@ -35,7 +35,6 @@ export const { start, attach }: CustomScript = {
   /*
    * The start function is called when the custom script panel is rendered 
    * (e.g. when the user navigates to a page where the custom script is configured).
-   * This method must return a Promise that resolves with an object containing a stop function.
    * Do as much work as possible here, especially data loading. Contrary to attach(), 
    * the start method is asynchronous and any work done here delays the processing of subsequent panels. 
    * This minimizes layout shifts.
@@ -90,19 +89,6 @@ export const { start, attach }: CustomScript = {
     // localStorage.setItem("info", "{clicked: true}");
 
     {{ } }}
-
-    return Promise.resolve({
-      /*
-       * The stop function is called when the custom script panel is stopped (e.g. when the user navigates to a new page).
-       * Any changes the custom script makes to the document must be undone in this method, 
-       * otherwise they persist and may break following page visits. 
-       * This includes changes to panels, as panels can be reused on the following page under certain circumstances.
-       * Please do any clean-up necessary so all traces that were here are gone.
-      */
-      stop: () => {
-        console.log('stop');
-      }
-    });
   },
   /*
    * The attach function is called as soon as the custom script is ready to access the DOM elements. 

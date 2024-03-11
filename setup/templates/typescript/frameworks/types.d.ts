@@ -7,9 +7,9 @@
 declare type CustomScript = {
   /**
    * @param {CustomScriptParams} params - will be provided through the Red Bull custom script evaluator
-   * @returns {Promise<{ stop: () => void}>} must return a promise which is called when the user switches tab or leaves the page in general
+   * @returns {void}} 
    */
-  start: (params: CustomScriptParams) => Promise<{ stop: () => void }>;
+  start: (params: CustomScriptParams) => void;
 
   /**
    * This function will be called from the RedBull custom script evaluator once the script got attached.
@@ -80,7 +80,7 @@ declare type CustomScriptRBAccountsSDK = {
   RBAccounts: {
     login: () => Promise<any>;
     logout: () => Promise<any>;
-    getUser: () => CustomScriptRBAccountUser | null;
+    getCurrentUser: () => Promise<CustomScriptRBAccountUser | null>;
     profileHref: () => string;
     getJwt: () => Promise<string>;
     linkSocialMediaAccount: (providerName: string) => Promise<void>;
