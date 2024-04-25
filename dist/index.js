@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -76,7 +76,7 @@ function init(workingPath) {
                     return [4 /*yield*/, files.sourceFilesModified(cfg)];
                 case 1:
                     if (!_a.sent()) return [3 /*break*/, 3];
-                    log(chalk.white("It looks like you have already modified your scripts. Using this wizard will " + chalk.bold('override your changes') + "."));
+                    log(chalk.white("It looks like you have already modified your scripts. Using this wizard will ".concat(chalk.bold('override your changes'), ".")));
                     return [4 /*yield*/, inquirer.askIfWantToOverrideChanges()];
                 case 2:
                     confirmOverride = (_a.sent()).confirmOverride;
@@ -100,7 +100,7 @@ function init(workingPath) {
                         collectsUserData: consumerDataAnswers.collectsConsumerData,
                         useCREPO: crepoAnswers.useCREPO,
                         framework: preferredFramework,
-                        language: preferredLanguage
+                        language: preferredLanguage,
                     };
                     return [4 /*yield*/, setEnv(consumerDataAnswers, crepoAnswers)];
                 case 8:
@@ -110,7 +110,7 @@ function init(workingPath) {
                     _a.sent();
                     if (cfg.useCREPO &&
                         (!crepoAnswers.crepoAPIKeyStg || !crepoAnswers.crepoAPIKeyProd)) {
-                        console.log(chalk.yellow(chalk.bold('Warning') + ": You decided not to import keys for the " + chalk.bold('CREPO SDK') + ". However, the examples provided require these keys. If you do want to provide them, please restart the setup."));
+                        console.log(chalk.yellow("".concat(chalk.bold('Warning'), ": You decided not to import keys for the ").concat(chalk.bold('CREPO SDK'), ". However, the examples provided require these keys. If you do want to provide them, please restart the setup.")));
                     }
                     return [4 /*yield*/, inquirer.askIfWantToStartDevEnv()];
                 case 10:
@@ -119,7 +119,7 @@ function init(workingPath) {
                         try {
                             execSync('npm run start:dev', {
                                 stdio: 'inherit',
-                                killSignal: 'SIGINT'
+                                killSignal: 'SIGINT',
                             });
                         }
                         catch (e) {
@@ -132,17 +132,17 @@ function init(workingPath) {
     });
 }
 export function setEnv(consumerConfig, crepoConfig) {
-    var _a, _b, _c, _d, _e;
     return __awaiter(this, void 0, void 0, function () {
         var filePath, fileStream;
-        return __generator(this, function (_f) {
+        var _a, _b, _c;
+        return __generator(this, function (_d) {
             filePath = path.join('.', '.env.redbull');
             fileStream = fs.createWriteStream(filePath, {
-                flags: 'w'
+                flags: 'w',
             });
-            fileStream.write("JOTFORM_ID=" + ((_c = consumerConfig.jotFormId) !== null && _c !== void 0 ? _c : '') + "\n");
-            fileStream.write("CREPO_API_KEY_STAGING=" + ((_d = crepoConfig.crepoAPIKeyStg) !== null && _d !== void 0 ? _d : '') + "\n");
-            fileStream.write("CREPO_API_KEY_PRODUCTION=" + ((_e = crepoConfig.crepoAPIKeyProd) !== null && _e !== void 0 ? _e : '') + "\n");
+            fileStream.write("JOTFORM_ID=".concat((_a = consumerConfig.jotFormId) !== null && _a !== void 0 ? _a : '', "\n"));
+            fileStream.write("CREPO_API_KEY_STAGING=".concat((_b = crepoConfig.crepoAPIKeyStg) !== null && _b !== void 0 ? _b : '', "\n"));
+            fileStream.write("CREPO_API_KEY_PRODUCTION=".concat((_c = crepoConfig.crepoAPIKeyProd) !== null && _c !== void 0 ? _c : '', "\n"));
             fileStream.end();
             return [2 /*return*/];
         });
