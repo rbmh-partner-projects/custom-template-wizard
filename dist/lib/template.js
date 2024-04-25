@@ -24,7 +24,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -73,7 +73,7 @@ function formatTemplate(content, destPath) {
         tabWidth: 2,
         printWidth: 100,
         pluginSearchDirs: [process.cwd()],
-        parser: 'babel'
+        parser: 'babel',
     };
     if (fileExtension === 'vue' || fileExtension === 'svelte') {
         baseConfig = __assign(__assign({}, baseConfig), { parser: 'html' });
@@ -169,7 +169,7 @@ var template = {
                     destinationPath = path.join(basePath, entry.destinationPath);
                     // in case we got a file here, we need to get the path of that file, otherwise a folder with the filename will be created
                     fs.mkdirSync(entry.isFile ? path.parse(destinationPath).dir : destinationPath, {
-                        recursive: true
+                        recursive: true,
                     });
                     if (!!entry.isFile) return [3 /*break*/, 6];
                     return [4 /*yield*/, renderAndCopyFilesInFolder(sourcePath, destinationPath, config, crepoConfig)];
@@ -207,94 +207,94 @@ var template = {
             languagePath = path.join(basePath, !isTypeScript ? 'javascript' : 'typescript');
             // we only need an API / Backend if user collects user data (for delete endpoint) or is using the CREPO (crepo requests should be made in the backend)
             if (config.collectsUserData) {
-                deleteUserDataCallbackFileName = "delete-user-data-callback." + (isTypeScript ? 't' : 'j') + "s";
+                deleteUserDataCallbackFileName = "delete-user-data-callback.".concat(isTypeScript ? 't' : 'j', "s");
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', deleteUserDataCallbackFileName),
                     destinationPath: path.join('.', 'server', 'routes', deleteUserDataCallbackFileName),
-                    isFile: true
+                    isFile: true,
                 });
-                uimEndPoint = "uim-jotform." + (isTypeScript ? 't' : 'j') + "s";
+                uimEndPoint = "uim-jotform.".concat(isTypeScript ? 't' : 'j', "s");
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', uimEndPoint),
                     destinationPath: path.join('.', 'server', 'routes', uimEndPoint),
-                    isFile: true
+                    isFile: true,
                 });
                 // add utils (jotform) for userData
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'utils'),
                     destinationPath: path.join('.', 'custom-script', 'utils'),
-                    isFile: false
+                    isFile: false,
                 });
             }
             if (config.useCREPO) {
-                fileName = "graphql-api." + (isTypeScript ? 't' : 'j') + "s";
+                fileName = "graphql-api.".concat(isTypeScript ? 't' : 'j', "s");
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', fileName),
                     destinationPath: path.join('.', 'server', 'routes', fileName),
-                    isFile: true
+                    isFile: true,
                 });
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', 'utils'),
                     destinationPath: path.join('.', 'server', 'utils'),
-                    isFile: false
+                    isFile: false,
                 });
                 templatePaths.push({
                     sourcePath: path.join(languagePath, 'api', 'queries'),
                     destinationPath: path.join('.', 'server', 'queries'),
-                    isFile: false
+                    isFile: false,
                 });
                 templatePaths.push({
                     sourcePath: path.join(basePath, 'graphql.config.js.t'),
                     destinationPath: path.join('..', 'graphql.config.js.t'),
-                    isFile: true
+                    isFile: true,
                 });
             }
             frameworkPath = path.join(languagePath, 'frameworks');
             templatePaths.push({
-                sourcePath: path.join(frameworkPath, "main." + (isTypeScript ? 't' : 'j') + "s.t"),
-                destinationPath: path.join('.', 'custom-script', "main." + (isTypeScript ? 'ts' : 'js') + (isPreact ? 'x' : '')),
-                isFile: true
+                sourcePath: path.join(frameworkPath, "main.".concat(isTypeScript ? 't' : 'j', "s.t")),
+                destinationPath: path.join('.', 'custom-script', "main.".concat(isTypeScript ? 'ts' : 'js').concat(isPreact ? 'x' : '')),
+                isFile: true,
             });
             templatePaths.push({
                 sourcePath: path.join(frameworkPath, 'rollup.config.js.t'),
                 destinationPath: path.join('.', 'custom-script', 'rollup.config.js.t'),
-                isFile: true
+                isFile: true,
             });
             componentPath = path.join(basePath, 'component');
             templatePaths.push({
                 sourcePath: path.join(componentPath, 'Card.js.t'),
-                destinationPath: path.join('.', 'custom-script', 'components', "Card." + (isSvelte ? 'svelte' : '') + (isVue ? 'vue' : '') + (isJsAndVanilla ? 'js' : '') + (isTsAndVanilla ? 'ts' : '') + (isTsAndPreact ? 'tsx' : '') + (isJsAndPreact ? 'jsx' : '')),
-                isFile: true
+                destinationPath: path.join('.', 'custom-script', 'components', "Card.".concat(isSvelte ? 'svelte' : '').concat(isVue ? 'vue' : '').concat(isJsAndVanilla ? 'js' : '').concat(isTsAndVanilla ? 'ts' : '').concat(isTsAndPreact ? 'tsx' : '').concat(isJsAndPreact ? 'jsx' : '')),
+                isFile: true,
             });
             // we need to copy the App.vue file
             if (isVue) {
                 AppVueConfig = {
                     absolutePath: path.join(basePath, 'App.vue'),
-                    fileName: 'App.vue'
+                    fileName: 'App.vue',
                 };
                 templatePaths.push({
                     sourcePath: AppVueConfig.absolutePath,
                     destinationPath: path.join('.', 'custom-script', AppVueConfig.fileName),
-                    isFile: true
+                    isFile: true,
                 });
             }
             stylesPath = path.join(basePath, 'styles');
             templatePaths.push({
                 sourcePath: stylesPath,
                 destinationPath: path.join('.', 'custom-script', 'styles'),
-                isFile: false
+                isFile: false,
             });
             assetsPath = path.join(basePath, 'assets');
             templatePaths.push({
                 sourcePath: assetsPath,
                 destinationPath: path.join('.', 'custom-script', 'assets'),
-                isFile: false
+                isFile: false,
             });
             binPath = path.join(languagePath, 'api', 'bin');
             templatePaths.push({
                 sourcePath: binPath,
                 destinationPath: path.join('.', 'server', 'bin'),
-                isFile: false
+                isFile: false,
             });
             // copy type definitions
             if (isTypeScript) {
@@ -302,25 +302,25 @@ var template = {
                 templatePaths.push({
                     sourcePath: serverTypeDefPath,
                     destinationPath: path.join('.', 'server', 'types.d.ts'),
-                    isFile: true
+                    isFile: true,
                 });
                 frontendTypeDefPath = path.join(languagePath, 'frameworks', 'types.d.ts');
                 templatePaths.push({
                     sourcePath: frontendTypeDefPath,
                     destinationPath: path.join('.', 'custom-script', 'types.d.ts'),
-                    isFile: true
+                    isFile: true,
                 });
             }
-            appFileName = "app." + (isTypeScript ? 't' : 'j') + "s.t";
+            appFileName = "app.".concat(isTypeScript ? 't' : 'j', "s.t");
             appPath = path.join(languagePath, appFileName);
             templatePaths.push({
                 sourcePath: appPath,
                 destinationPath: path.join('.', 'server', appFileName),
-                isFile: true
+                isFile: true,
             });
             return [2 /*return*/, templatePaths];
         });
-    }); }
+    }); },
 };
 export default template;
 //# sourceMappingURL=template.js.map

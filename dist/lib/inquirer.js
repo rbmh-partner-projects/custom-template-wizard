@@ -13,7 +13,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -48,7 +48,7 @@ var inq = {
                             name: 'startDevEnv',
                             type: 'confirm',
                             message: 'Your settings were successfully processed. Do you want to start the development environment?',
-                            "default": false
+                            default: false,
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
@@ -64,7 +64,7 @@ var inq = {
                 name: 'confirmOverride',
                 type: 'confirm',
                 message: 'Do you want to continue and override your changes?',
-                "default": false
+                default: false,
             },
         ];
         return inquirer.prompt(question);
@@ -79,7 +79,7 @@ var inq = {
                             name: 'useCREPO',
                             type: 'confirm',
                             message: 'Are you going to use the CREPO?',
-                            "default": false
+                            default: false,
                         },
                         {
                             name: 'crepoKeyStg',
@@ -87,7 +87,7 @@ var inq = {
                             when: function (answers) {
                                 return answers.useCREPO;
                             },
-                            message: 'Please provide your CREPO API key for the staging environment:'
+                            message: 'Please provide your CREPO API key for the staging environment:',
                         },
                         {
                             name: 'crepoKeyProd',
@@ -95,7 +95,7 @@ var inq = {
                             when: function (answers) {
                                 return answers.useCREPO;
                             },
-                            message: 'Please provide your CREPO API key for the production environment:'
+                            message: 'Please provide your CREPO API key for the production environment:',
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(questions)];
@@ -104,7 +104,7 @@ var inq = {
                     return [2 /*return*/, {
                             useCREPO: result.useCREPO,
                             crepoAPIKeyProd: result.crepoKeyProd,
-                            crepoAPIKeyStg: result.crepoKeyStg
+                            crepoAPIKeyStg: result.crepoKeyStg,
                         }];
             }
         });
@@ -119,7 +119,7 @@ var inq = {
                             name: 'collectsUserData',
                             type: 'confirm',
                             message: 'Are you going to collect consumer data?',
-                            "default": false
+                            default: false,
                         },
                         {
                             name: 'jotFormId',
@@ -130,7 +130,7 @@ var inq = {
                             message: 'Please provide your JotForm ID:',
                             validate: function (input) {
                                 return input && input.trim() !== '';
-                            }
+                            },
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(questions)];
@@ -138,7 +138,7 @@ var inq = {
                     answers = _a.sent();
                     return [2 /*return*/, {
                             collectsConsumerData: answers.collectsUserData,
-                            jotFormId: answers.jotFormId
+                            jotFormId: answers.jotFormId,
                         }];
             }
         });
@@ -153,7 +153,7 @@ var inq = {
                             name: 'preferredLanguage',
                             type: 'list',
                             message: 'Do you prefer Typescript or Javascript?',
-                            choices: ['TypeScript', 'JavaScript']
+                            choices: ['TypeScript', 'JavaScript'],
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
@@ -176,13 +176,13 @@ var inq = {
                             type: 'list',
                             message: 'Which framework do you prefer for your work?',
                             choices: [
-                                "Vanilla " + (preferredLanguage === CustomScriptLanguage.JAVASCRIPT
+                                "Vanilla ".concat(preferredLanguage === CustomScriptLanguage.JAVASCRIPT
                                     ? 'JavaScript'
                                     : 'TypeScript'),
                                 'Preact',
                                 'Svelte',
                                 'Vue',
-                            ]
+                            ],
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
@@ -197,7 +197,7 @@ var inq = {
                     return [2 /*return*/, CustomScriptFramework.VANILLA];
             }
         });
-    }); }
+    }); },
 };
 export default inq;
 //# sourceMappingURL=inquirer.js.map
