@@ -43,32 +43,33 @@ router.get('/uim/submission/:userId', async function (req, res, next) {
  */
 router.post('/uim/notification', async function (req, res, next) {
   try {
-    const signature = req.header('X-UIM-RSA-Signature-value')
-    const signatureVersion = req.header('X-UIM-RSA-Signature-version')
+    const signature = req.header("X-UIM-RSA-Signature-value");
+    const signatureVersion = req.header("X-UIM-RSA-Signature-version");
 
     if (!signature || !signatureVersion) {
-      return res.status(400).send()
+      return res.status(400).send();
     }
 
-    const signatureB64ToBinary = Buffer.from(signature, 'base64')
+    const signatureB64ToBinary = Buffer.from(signature, "base64");
 
+    // production jwks URL: https://uim.redbull.com/.well-known/jwks-registry/jwks-prod.json
     const jkws = await axios.get(
-      'https://uim-design.redbull.com/.well-known/jwks-registry/jwks-design.json'
-    )
-    const key = jkws.data.keys.find((x) => x.kid === signatureVersion)
-    const publicKey = jwkToPem(key)
+      "https://uim-design.redbull.com/.well-known/jwks-registry/jwks-design.json"
+    );
+    const key = jkws.data.keys.find((x) => x.kid === signatureVersion);
+    const publicKey = jwkToPem(key);
 
-    const verify = crypto.createVerify('SHA256')
-    verify.write(JSON.stringify(req.body))
-    verify.end()
+    const verify = crypto.createVerify("SHA256");
+    verify.write(JSON.stringify(req.body));
+    verify.end();
 
     if (!verify.verify(publicKey, signatureB64ToBinary)) {
-      return res.status(400).send('Invalid signature')
+      return res.status(400).send("Invalid signature");
     }
 
-    await onUIMNotificationReceived(req.body)
+    await onUIMNotificationReceived(req.body);
 
-    return res.status(200).send(publicKey)
+    return res.status(200).send(publicKey);
   } catch (err) {
     console.error(err)
 
