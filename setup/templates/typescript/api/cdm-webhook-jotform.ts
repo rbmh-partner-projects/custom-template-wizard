@@ -30,7 +30,7 @@ const onCDMWebhookNotificationReceived = async (
  * Demo implementation of fetching stored form submission.
  * ‼️ This code should not be used in production environments.
  */
-router.get("/uim/submission/:userId", async function (req, res, next) {
+router.get("/cmd/submission/:userId", async function (req, res, next) {
   const userId = req.params.userId;
 
   if (!fakeDatabase.has(userId)) {
@@ -47,7 +47,7 @@ router.get("/uim/submission/:userId", async function (req, res, next) {
  * @see https://engineering.redbull.com/cdm/webhook-notification#FszPi
  * This endpoint implements the need of verifying that the messages are genuinely sent by CDM.
  */
-router.post("/uim/notification", async function (req, res, next) {
+router.post("/cmd/notification", async function (req, res, next) {
   try {
     const signature = req.header("X-CIAM-RSA-Signature-value");
     const signatureVersion = req.header("X-CIAM-RSA-Signature-version");
