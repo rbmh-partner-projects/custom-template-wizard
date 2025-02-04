@@ -1,7 +1,7 @@
 import Conf from 'conf';
 var cfgFile = new Conf({
     configName: 'rb-custom-script',
-    cwd: process.cwd(),
+    cwd: process.cwd()
 });
 var config = {
     save: function (cfg) {
@@ -10,7 +10,7 @@ var config = {
     },
     load: function () {
         return cfgFile.store;
-    },
+    }
 };
 export default config;
 //# sourceMappingURL=config.js.map

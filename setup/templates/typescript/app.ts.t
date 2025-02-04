@@ -37,7 +37,7 @@ const deleteCallbackFile = './routes/delete-user-data-callback'
 import(deleteCallbackFile).then((userDataCallbackRouter) => {
     app.use('/', userDataCallbackRouter.default)
 })
-const jotFormRoutes = './routes/uim-jotform'
+const jotFormRoutes = './routes/cdm-webhook-jotform'
 import(jotFormRoutes).then((jotFormRoutesRouter) => {
     app.use('/', jotFormRoutesRouter.default)
 })
