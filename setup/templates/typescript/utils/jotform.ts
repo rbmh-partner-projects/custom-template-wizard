@@ -22,7 +22,7 @@ const jotForm = {
 
     try {
       const baseUrl = `https://${process.env.BASE_SSL_URL}`;
-      const response = await fetch(`${baseUrl}/cmd/submission/${userSilodId}`);
+      const response = await fetch(`${baseUrl}/cdm/submission/${userSilodId}`);
 
       return await response.json();
     } catch (err) {
