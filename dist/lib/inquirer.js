@@ -13,7 +13,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import inquirer from 'inquirer';
-import { CustomScriptFramework, CustomScriptLanguage } from '../types/enum.js';
+import inquirer from "inquirer";
+import { CustomScriptFramework, CustomScriptLanguage } from "../types/enum.js";
 var inq = {
     askIfWantToStartDevEnv: function () { return __awaiter(void 0, void 0, void 0, function () {
         var question, answer;
@@ -45,10 +45,10 @@ var inq = {
                 case 0:
                     question = [
                         {
-                            name: 'startDevEnv',
-                            type: 'confirm',
-                            message: 'Your settings were successfully processed. Do you want to start the development environment?',
-                            default: false,
+                            name: "startDevEnv",
+                            type: "confirm",
+                            message: "Your settings were successfully processed. Do you want to start the development environment?",
+                            "default": false
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
@@ -61,10 +61,10 @@ var inq = {
     askIfWantToOverrideChanges: function () {
         var question = [
             {
-                name: 'confirmOverride',
-                type: 'confirm',
-                message: 'Do you want to continue and override your changes?',
-                default: false,
+                name: "confirmOverride",
+                type: "confirm",
+                message: "Do you want to continue and override your changes?",
+                "default": false
             },
         ];
         return inquirer.prompt(question);
@@ -76,26 +76,26 @@ var inq = {
                 case 0:
                     questions = [
                         {
-                            name: 'useCREPO',
-                            type: 'confirm',
-                            message: 'Are you going to use the CREPO?',
-                            default: false,
+                            name: "useCREPO",
+                            type: "confirm",
+                            message: "Are you going to use the CREPO (COntent REPOsitory)?",
+                            "default": false
                         },
                         {
-                            name: 'crepoKeyStg',
-                            type: 'input',
+                            name: "crepoKeyStg",
+                            type: "input",
                             when: function (answers) {
                                 return answers.useCREPO;
                             },
-                            message: 'Please provide your CREPO API key for the staging environment:',
+                            message: "Please provide your CREPO API key for the staging environment:"
                         },
                         {
-                            name: 'crepoKeyProd',
-                            type: 'input',
+                            name: "crepoKeyProd",
+                            type: "input",
                             when: function (answers) {
                                 return answers.useCREPO;
                             },
-                            message: 'Please provide your CREPO API key for the production environment:',
+                            message: "Please provide your CREPO API key for the production environment:"
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(questions)];
@@ -104,7 +104,7 @@ var inq = {
                     return [2 /*return*/, {
                             useCREPO: result.useCREPO,
                             crepoAPIKeyProd: result.crepoKeyProd,
-                            crepoAPIKeyStg: result.crepoKeyStg,
+                            crepoAPIKeyStg: result.crepoKeyStg
                         }];
             }
         });
@@ -116,21 +116,21 @@ var inq = {
                 case 0:
                     questions = [
                         {
-                            name: 'collectsUserData',
-                            type: 'confirm',
-                            message: 'Are you going to collect consumer data?',
-                            default: false,
+                            name: "collectsUserData",
+                            type: "confirm",
+                            message: "Are you going to collect consumer data?",
+                            "default": false
                         },
                         {
-                            name: 'jotFormId',
-                            type: 'input',
+                            name: "jotFormId",
+                            type: "input",
                             when: function (answers) {
                                 return answers.collectsUserData;
                             },
-                            message: 'Please provide your JotForm ID:',
+                            message: "Please provide your JotForm ID:",
                             validate: function (input) {
-                                return input && input.trim() !== '';
-                            },
+                                return input && input.trim() !== "";
+                            }
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(questions)];
@@ -138,7 +138,7 @@ var inq = {
                     answers = _a.sent();
                     return [2 /*return*/, {
                             collectsConsumerData: answers.collectsUserData,
-                            jotFormId: answers.jotFormId,
+                            jotFormId: answers.jotFormId
                         }];
             }
         });
@@ -150,16 +150,16 @@ var inq = {
                 case 0:
                     question = [
                         {
-                            name: 'preferredLanguage',
-                            type: 'list',
-                            message: 'Do you prefer Typescript or Javascript?',
-                            choices: ['TypeScript', 'JavaScript'],
+                            name: "preferredLanguage",
+                            type: "list",
+                            message: "Do you prefer Typescript or Javascript?",
+                            choices: ["TypeScript", "JavaScript"]
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
                 case 1:
                     preferredLanguage = (_a.sent()).preferredLanguage;
-                    return [2 /*return*/, preferredLanguage === 'TypeScript'
+                    return [2 /*return*/, preferredLanguage === "TypeScript"
                             ? CustomScriptLanguage.TYPESCRIPT
                             : CustomScriptLanguage.JAVASCRIPT];
             }
@@ -172,32 +172,32 @@ var inq = {
                 case 0:
                     question = [
                         {
-                            name: 'preferredFramework',
-                            type: 'list',
-                            message: 'Which framework do you prefer for your work?',
+                            name: "preferredFramework",
+                            type: "list",
+                            message: "Which framework do you prefer for your work?",
                             choices: [
                                 "Vanilla ".concat(preferredLanguage === CustomScriptLanguage.JAVASCRIPT
-                                    ? 'JavaScript'
-                                    : 'TypeScript'),
-                                'Preact',
-                                'Svelte',
-                                'Vue',
-                            ],
+                                    ? "JavaScript"
+                                    : "TypeScript"),
+                                "Preact",
+                                "Svelte",
+                                "Vue",
+                            ]
                         },
                     ];
                     return [4 /*yield*/, inquirer.prompt(question)];
                 case 1:
                     preferredFramework = (_a.sent()).preferredFramework;
-                    if (preferredFramework === 'Preact')
+                    if (preferredFramework === "Preact")
                         return [2 /*return*/, CustomScriptFramework.PREACT];
-                    if (preferredFramework === 'Svelte')
+                    if (preferredFramework === "Svelte")
                         return [2 /*return*/, CustomScriptFramework.SVELTE];
-                    if (preferredFramework === 'Vue')
+                    if (preferredFramework === "Vue")
                         return [2 /*return*/, CustomScriptFramework.VUE];
                     return [2 /*return*/, CustomScriptFramework.VANILLA];
             }
         });
-    }); },
+    }); }
 };
 export default inq;
 //# sourceMappingURL=inquirer.js.map

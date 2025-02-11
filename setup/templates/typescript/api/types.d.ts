@@ -51,6 +51,7 @@ declare type CustomScriptLightboxController = {
 };
 
 /**
+ * @deprecated
  * Interface for typescript implementation of UIM notification
  *
  * @interface
@@ -69,6 +70,12 @@ declare type UIMNotification = {
     | "FORM_SUBMISSION_DELETED";
 };
 
+/**
+ * @deprecated
+ * Interface for typescript implementation of UIM notification info
+ *
+ * @interface
+ */
 declare type UIMNotificationInfo = {
   socialMediaAccounts: any[];
   accepted_newsletters: any[];
@@ -91,6 +98,12 @@ declare type UIMNotificationInfo = {
   userConsents: UIMNotificationUserConsent[];
 };
 
+/**
+ * @deprecated
+ * Interface for typescript implementation of UIM notification info field
+ *
+ * @interface
+ */
 declare type UIMNotificationInfoField = {
   key: string;
   value: string;
@@ -98,6 +111,12 @@ declare type UIMNotificationInfoField = {
   type: string;
 };
 
+/**
+ * @deprecated
+ * Interface for typescript implementation of UIM notification user consent
+ *
+ * @interface
+ */
 declare type UIMNotificationUserConsent = {
   masterDocumentId: string;
   documentId: string;
@@ -112,6 +131,74 @@ declare type UIMNotificationUserConsent = {
   renderingType: string;
 };
 
+/**
+ * CDM Webhook Notification
+ * @see https://engineering.redbull.com/cdm/webhook-notification
+ */
+
+declare type CDMWebhookNotification = {
+  organizationType: "BEVERAGE" | "CORPORATE";
+  createdAt: Date;
+} & (CDMWebhookFormSubmitted | CDMWebhookFormSubmissionDeleted);
+
+/**
+ * CDM Webhook Form Submitted
+ * @see https://engineering.redbull.com/cdm/webhook-notification#krdkS
+ */
+declare type CDMWebhookFormSubmitted = {
+  type: "FORM_SUBMITTED";
+  info: {
+    fields: {
+      first_name: string;
+      last_name: string;
+      email: string;
+    } & { [key: string]: any };
+    formSubmissionId: string;
+    formAlias: string;
+    externalFormId?: string;
+    externalFormSubmissionId?: string;
+    externalSystemId?: string;
+    externalUploadedFiles?: string[];
+    source?: string;
+    lucidId: string;
+    organizationType: CDMWebhookNotification["organizationType"];
+    submittedAt: string;
+    language: string; // ISO 639-1 Code
+    country: string; // ISO 3166-1 Alpha2 Code
+    userConsents: CDMWebhookUserConsent[];
+  };
+};
+
+/**
+ * CDM Webhook Form Submission Deleted
+ * @see https://engineering.redbull.com/cdm/webhook-notification#A8ba0
+ */
+declare type CDMWebhookFormSubmissionDeleted = {
+  type: "FORM_SUBMISSION_DELETED";
+  info: {
+    formSubmissionId: string;
+    formAlias: string;
+    externalFormId?: string;
+    externalSystemId?: string;
+  };
+};
+
+declare type CDMWebhookUserConsent = {
+  documentId: string;
+  mandatory: boolean;
+  policyType: string;
+  version: string;
+  timeOfConsent: string;
+  url: string;
+  custom: boolean;
+  policyText?: {
+    documentId: string;
+    version: string;
+    url: string;
+    text: string;
+  };
+};
+
 export {
   CustomScriptRBAccountUser,
   UIMNotification,
@@ -119,4 +206,5 @@ export {
   UIMNotificationInfo,
   CustomScriptLightboxController,
   CustomScriptRBAccountsSDK,
+  CDMWebhookNotification,
 };

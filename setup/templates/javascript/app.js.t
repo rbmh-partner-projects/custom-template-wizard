@@ -25,7 +25,7 @@ app.use('/', test.default.init());
 {{ if (it.collectsUserData) { }}
 const userDataCallbackRouter = await import('./routes/delete-user-data-callback.js');
 app.use('/', userDataCallbackRouter.default.init());
-const jotFormRoutes = await import('./routes/uim-jotform.js')
+const jotFormRoutes = await import('./routes/cdm-webhook-jotform.js')
 app.use('/', jotFormRoutes.default.init());
 {{ } }}
 

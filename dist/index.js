@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -100,7 +100,7 @@ function init(workingPath) {
                         collectsUserData: consumerDataAnswers.collectsConsumerData,
                         useCREPO: crepoAnswers.useCREPO,
                         framework: preferredFramework,
-                        language: preferredLanguage,
+                        language: preferredLanguage
                     };
                     return [4 /*yield*/, setEnv(consumerDataAnswers, crepoAnswers)];
                 case 8:
@@ -119,7 +119,7 @@ function init(workingPath) {
                         try {
                             execSync('npm run start:dev', {
                                 stdio: 'inherit',
-                                killSignal: 'SIGINT',
+                                killSignal: 'SIGINT'
                             });
                         }
                         catch (e) {
@@ -132,13 +132,13 @@ function init(workingPath) {
     });
 }
 export function setEnv(consumerConfig, crepoConfig) {
+    var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function () {
         var filePath, fileStream;
-        var _a, _b, _c;
         return __generator(this, function (_d) {
             filePath = path.join('.', '.env.redbull');
             fileStream = fs.createWriteStream(filePath, {
-                flags: 'w',
+                flags: 'w'
             });
             fileStream.write("JOTFORM_ID=".concat((_a = consumerConfig.jotFormId) !== null && _a !== void 0 ? _a : '', "\n"));
             fileStream.write("CREPO_API_KEY_STAGING=".concat((_b = crepoConfig.crepoAPIKeyStg) !== null && _b !== void 0 ? _b : '', "\n"));

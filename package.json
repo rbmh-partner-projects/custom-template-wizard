@@ -6,7 +6,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "rollup -c ./src/custom-script/rollup.config.js",
+    "build": "tsc",
     "setup": "node --loader ts-node/esm --experimental-specifier-resolution=node ./setup/index.ts setup",
     "test": "echo 'Tests deactivated'"
   },
