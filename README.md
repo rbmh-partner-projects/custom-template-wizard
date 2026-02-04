@@ -5,9 +5,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="https://resources.redbull.com/logos/redbullcom/v3/redbullcom-logo.svg" alt="Logo" width="200" height="80">
-  </a>
 
 <h3 align="center">Custom Script - Wizard</h3>
 <br />
